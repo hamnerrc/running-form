@@ -45,13 +45,7 @@ Target times through the 10 m zone, so he can sanity-check pace:
 
 ## Info needed
 - **Athlete A:** have everything (height 5'9", PR 19'3", right-foot takeoff, injury notes below).
-- **Athlete B:** height, mile PR and/or target mile pace, and any current pain. That's all.
-
-## Injury guardrails (not medical advice)
-- **Athlete A, left medial shin:** stop for sharp, sharply localized pain, or a spot on the bone that hurts when pressed. That can mean a bone stress injury rather than shin splints.
-- **Athlete A, right ankle:** previously broken (rolled at takeoff); knee-to-wall dorsiflexion 3" vs 4.5" on the left. The surface should be even, and he should stop if anything feels off.
-
----
+- **Athlete B:** 5’10” 5:15 estimated mile PR right now, sub 5 goal, will be very tired day of filming from meet the day before. (good anyways to test form under fatigue). shin splints.
 
 ## FIELD CARD (screenshot this)
 
