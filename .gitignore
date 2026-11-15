@@ -1,0 +1,16 @@
+# Raw media stays local (GitHub rejects files >100 MB)
+data/**/*.MOV
+data/**/*.mov
+data/**/*.mp4
+data/**/*.MP4
+data/**/*.m4v
+data/**/*.HEIC
+data/**/*.heic
+data/**/*.jpg
+data/**/*.JPG
+data/**/*.jpeg
+data/**/*.png
+models/
+__pycache__/
+*.pyc
+.venv/

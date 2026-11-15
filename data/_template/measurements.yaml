@@ -1,0 +1,20 @@
+# Copy to data/<YYYY-MM-DD>/<athlete>/measurements.yaml. Barefoot. Centimeters. null = not measured.
+# Landmarks: greater trochanter (bony point on side of hip), lateral knee joint line,
+# lateral malleolus (outer ankle bone).
+athlete: A
+height_cm: 175.3
+right:
+  leg_length_floor_to_trochanter_cm: null
+  thigh_trochanter_to_knee_line_cm: null
+  shank_knee_line_to_malleolus_cm: null
+  malleolus_height_cm: null
+  foot_length_cm: null
+  knee_to_wall_in: 3.0
+left:
+  leg_length_floor_to_trochanter_cm: null
+  thigh_trochanter_to_knee_line_cm: null
+  shank_knee_line_to_malleolus_cm: null
+  malleolus_height_cm: null
+  foot_length_cm: null
+  knee_to_wall_in: 4.5
+# Athlete B: height only is fine; the analysis falls back to Winter ratios.

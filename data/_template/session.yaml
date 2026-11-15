@@ -1,0 +1,54 @@
+# Copy to data/<YYYY-MM-DD>/session.yaml and fill in. Leave unknowns as null.
+date: 2026-11-15
+location: Santa Cruz High football field
+surface: artificial turf
+weather:
+  wind: null          # e.g. "light headwind on → reps"
+  temp_f: null
+  sun: null           # e.g. "behind camera"
+phone_model: null      # e.g. iPhone 15
+lens: 1x               # never 0.5x
+capture_fps: 240
+resolution: 1080p
+second_phone_front: false
+raw_backup: null       # where the raw videos are backed up (Git LFS / Drive / none)
+
+zone:
+  start_line: "50-yard line"
+  end_line: "G2-side 40-yard line"
+  length_m: 9.144      # 10 yd, line center to line center
+  across_m: null       # measured cone spacing across the running line (~1.5)
+  running_line: "near hash"
+camera:
+  position: "sideline at the 45, runner's right when running →"
+  distance_to_running_line_m: null   # approx
+
+reps:
+  # one entry per clip; file paths relative to this folder
+  - {athlete: A, file: A/video/calib.MOV,    type: calibration, direction: null, notes: ""}
+  - {athlete: A, file: A/video/stride75.MOV, type: stride_75,   direction: "→", notes: ""}
+  - {athlete: A, file: A/video/stride90.MOV, type: stride_90,   direction: "→", notes: ""}
+  - {athlete: A, file: A/video/fly1.MOV,     type: fly,         direction: "→", notes: ""}
+  - {athlete: A, file: A/video/fly2.MOV,     type: fly,         direction: "←", notes: ""}
+  - {athlete: A, file: A/video/fly3.MOV,     type: fly,         direction: "→", notes: ""}
+  - {athlete: B, file: B/video/calib.MOV,    type: calibration, direction: null, notes: ""}
+  - {athlete: B, file: B/video/mile1.MOV,    type: mile_pace,   direction: "→", notes: ""}
+  - {athlete: B, file: B/video/mile2.MOV,    type: mile_pace,   direction: "←", notes: ""}
+  - {athlete: B, file: B/video/mile3.MOV,    type: mile_pace,   direction: "→", notes: ""}
+  # optional:
+  # - {athlete: A, file: A/video/pogo2.MOV,  type: pogo_double, direction: null, notes: ""}
+  # - {athlete: A, file: A/video/pogoR.MOV,  type: pogo_right,  direction: null, notes: ""}
+  # - {athlete: A, file: A/video/pogoL.MOV,  type: pogo_left,   direction: null, notes: ""}
+  # - {athlete: A, file: A/video/broad.MOV,  type: broad_jump,  direction: "→", notes: ""}
+  # - {athlete: B, file: B/video/kick.MOV,   type: kick_pace,   direction: "→", notes: ""}
+
+athletes:
+  A:
+    shoes: null        # model, or barefoot
+    landmark_tape: true
+    pain_or_soreness: ""
+  B:
+    shoes: null
+    landmark_tape: null
+    fatigue: "raced a meet the day before"
+    pain_or_soreness: ""
