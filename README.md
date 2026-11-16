@@ -1,6 +1,6 @@
 # running-form
 
-Research-grade, video-based running form analysis for two athletes. Videos, photos and measurements go into `data/`. An agent (e.g. Claude Code) runs the analysis and writes reports to `results/`.
+Research-grade, video-based running form analysis for two athletes (more may join; add them to `session.yaml`). Videos, photos and measurements go into `data/`. An agent (e.g. Claude Code) runs the analysis and writes reports to `results/`.
 
 > **Agent: start here.** This README is your full brief. Read it all, then [02](02-reference-sprint-longjump.md) and [03](03-reference-miler.md) for the reference values and [04](04-analysis-method.md) for formulas. Field instructions for the humans are in [01](01-plan-and-setup.md).
 
@@ -13,60 +13,42 @@ Research-grade, video-based running form analysis for two athletes. Videos, phot
 | Event | Long jump, **right-foot takeoff** | Mile |
 | Height | 5'9" (1.753 m) | 5'10" (1.778 m) |
 | Current | PR 19'3" (5.87 m) | ~5:15 mile (estimated) |
-| Goal | 22 ft (6.71 m) → needs ~8.5–9 m/s controlled approach speed | Sub-5:00 |
+| Goal | 21'9" (6.63 m) → needs ≈ 19.6 mph (8.77 m/s) approach speed by his equation (see 02) | Sub-5:00 |
 | Style | Elastic, technique-based (short contacts, bounce), not a power jumper | — |
 | Measurements | **Full** (tape-measure segments, landmark tape, photos) | **Height only** → use anthropometric estimates, lower accuracy |
 | Analysis focus | Max-velocity sprint mechanics for long jump; right vs left asymmetry | Economy at mile pace + speed mechanics; **filmed fatigued** (meet the day before) |
-| This phase | No approach runs or jumps yet (cleared later); no spikes | — |
+| Next session | ≈ mid-Dec 2026: 4 flying sprints, 4 approach-run simulations, 2 full takeoffs into the pit (long-jump spikes) | to be decided |
 
 Health context (Athlete A's right ankle and left shin; Athlete B's shins) is in [02](02-reference-sprint-longjump.md), [01](01-plan-and-setup.md) and the session notes. Treat it as context for interpreting asymmetries and loading. **Never as a diagnosis.**
 
 ---
 
-## 2. Filming setup (football field)
+## 2. Filming setup
 
-High-school football field (Santa Cruz High: artificial turf). Yard lines give exact distances, so no tape measure is needed for the zone.
+The setup used on 2026-11-15 is the standard; repeat it exactly so sessions compare. Step-by-step instructions and the field card are in [01](01-plan-and-setup.md).
 
-```
- G1 goal line                                  50                 40 (G2 side)          G2 goal line   G2 end line
-   |----------------------- 50 yd (45.7 m) ------|=== ZONE 10 yd ===|----- 40 yd -------------|--- 10 yd --|
-   →  start here for → reps                       [cone]      [cone]           start here for ← reps (end line)  ←
-                                                  [cone]      [cone]   ← 1.5 m (measured) across
-                                                        📷  camera on the sideline at the G2-side 45, ~17–18 m away
-```
+**Field (sprints and approach-run simulations).** Santa Cruz High football field (artificial turf).
+- **Zone:** 20-yard line → 30-yard line = **10 yd (9.144 m)**, line centre to line centre.
+- **Markers:** orange cones on the painted line through the 20 and 30 (near row); red bottle on the 20 and black cylinder on the 30, **3.0 m** further across (far row). A ribbon on the cylinder shows the wind in frame.
+- **Camera:** near sideline, square to the 25-yard line, hip height. The 20/25/30 lines and all markers in frame. Calibration = the 6 line × marker-row intersections (`data/<date>/calib.yaml`, setup `main`): fit RMSE 0.8 px, ±0.6 cm along the line on 2026-11-15.
+- **Run-ups:** flying sprints start ≥ 30 m before the zone. Approach-run simulations use the full approach with the last step on the far zone line (the 30 for →, the 20 for ←), so the zone is the last 10 yd before the "board".
 
-- **Camera zone:** between the **50-yard line and the G2-side 40-yard line**, i.e. 50–60 yd from the G1 goal line. **10 yd = 9.144 m**, measured line center to line center. The **45-yard line** inside the zone is a free calibration check.
-- **Run-ups on both sides:** → reps start at the G1 goal line (45.7 m before the zone). ← reps start at the G2 end line, the back of the end zone (also 45.7 m before the zone). Each athlete can start closer if he wants. For Athlete A, the last ~20 m before the zone is the "fly".
-- **Running line:** along the near hash marks (~16 m from the sideline on high-school fields).
-- **4 cones:** on the 50 and the 40, one at the hash line and one **1.5 m** further toward the field's center (measure it exactly). The athlete runs between them.
-- **Camera:** tripod just behind the sideline at the 45-yard line in the zone (the G2-side 45), square to the running line, at hip height. Use the sideline on the runner's right when running → (G1 → G2). Sun not in the lens.
-- **Camera settings:**
-  - **Slo-mo 240 fps** (1080p is fine; 240 fps matters more than 4K)
-  - Main **1×** lens or tele, **never the 0.5× ultra-wide** (lens distortion)
-  - Lock focus/exposure (long-press)
-  - Never move or re-zoom between reps
-- **Optional 2nd phone** at the end of the running line facing the runner, at shin height (ankle rolling in or out).
+**Pit (takeoffs).** Camera on the runner's right as he runs toward the pit (takeoff leg toward the camera), ~10 m from the runway centre line, hip height, centred ~2.5 m before the board. Six tape marks on the runway edges at the board's front edge, 2.5 m and 5.0 m before it, plus the measured runway width, give the homography (setup `pit`, `board_x_m: 0`). World x points toward the pit, so takeoff reps are always direction "→" with `near_side: R`.
+
+**Camera settings (both):** slo-mo **240 fps**, 1080p · **1× lens, never 0.5×** · lock focus/exposure · never touch the phone between reps · send the **original files** (AirDrop, "All Photos Data" on).
 
 ---
 
 ## 3. What gets recorded
 
-**Before the session (indoors, any time):**
-1. **Tape-measure segments** (Athlete A, both sides, barefoot): height; floor → greater trochanter (leg length); trochanter → lateral knee joint line (thigh); knee joint line → lateral malleolus (shank); floor → lateral malleolus; foot length (heel → longest toe).
-2. **Measurement photos** (Athlete A): front, right side and back in A-pose, from 3–4 m, camera at hip height, a known-length tape on the floor. Plus a natural-standing side photo.
-3. **Knee-to-wall photos**, both feet, from the side, in the test position. (A: known 3" right vs 4.5" left.)
+Per session (details in [01](01-plan-and-setup.md)):
+1. **Calibration clips:** 5 s of the empty zone (field) and of the empty runway with markers (pit); a 3 s standing clip of each athlete, side-on.
+2. **Athlete A:** flying sprints (2 →, 2 ←), approach-run simulations (2 →, 2 ←), full takeoffs into the pit (2+), with the official distance, foul or not, and approach length written on each rep line.
+3. **Other athletes** as agreed (e.g. Athlete B: 3 × mile pace alternating directions, 1 × kick).
+4. **On the day:** body mass, shoes, temperature, wind per rep, effort (1–10) per rep, sleep and soreness.
+5. **Optional:** pink landmark tape on the camera side (ankle bone, knee side, hip bone, shoulder top, elbow, wrist); tape-measured segments for any new athlete (else segments come from video, as for B).
 
-**At the field (in this order):**
-1. **Calibration stand:** each athlete stands still sideways in the middle of the zone for 3 s, landmark tape on.
-2. **Warm-up strides filmed:** A at 75% and 90% (one each through the zone).
-3. **Athlete A:** 3 × flies through the zone, **alternating directions: rep 1 →, rep 2 ←, rep 3 →**. Put the camera on the sideline that's on the runner's **right** when running →. Then → reps film the right side (takeoff leg, twice) and the ← rep films the left. Confirm which side faces the camera in the video. 4–5 min rest.
-4. **Athlete B:** 3 × mile pace (alternate directions if possible) · optional 1 × kick pace. He's already fatigued, so a separate "tired" pass isn't needed.
-5. *(Optional, A, only if pain-free)* **pogo hops:** 10 on both legs, then 5 per leg, side-on in the zone.
-6. *(Optional, A)* **one standing broad jump** in the zone, side-on.
-
-**Landmark tape** (both athletes if possible, both sides): lateral malleolus, lateral knee joint line, greater trochanter, acromion, plus the heel of the shoe if possible. Use colors that stand out against the clothing.
-
-Target times through the 10 yd zone: **A** 9 m/s → 1.02 s, 8.5 m/s → 1.08 s. **B** 5:15 pace = 5.11 m/s → 1.79 s; 5:00 pace = 5.36 m/s → 1.71 s.
+Rep types in `session.yaml`: `calibration`, `calibration_stand`, `fly` (flying sprint), `approach_sim` (`fly_control` in 2026-11-15 data), `takeoff`, `mile_pace`, `kick_pace`, `pogo_double|right|left`, `backflip`. Any extra key on a rep line (e.g. `official_m`, `foul`, `approach_steps`, `effort`, `near_side`) is kept and used where relevant.
 
 ---
 
@@ -74,18 +56,17 @@ Target times through the 10 yd zone: **A** 9 m/s → 1.02 s, 8.5 m/s → 1.08 s.
 
 ```
 data/
-  2026-11-15/                      ← one folder per session date
-    session.yaml                   ← fill from data/_template/session.yaml
-    A/
-      measurements.yaml            ← tape measures (template provided)
-      photos/      front.jpg side_R.jpg back.jpg natural_side.jpg ktw_R.jpg ktw_L.jpg
-      video/       calib.MOV stride75.MOV stride90.MOV fly1.MOV fly2.MOV fly3.MOV pogo2.MOV pogoR.MOV pogoL.MOV broad.MOV
-      video_front/ (optional 2nd phone, same names)
-    B/
-      measurements.yaml            ← height only is fine
-      video/       calib.MOV mile1.MOV mile2.MOV mile3.MOV kick.MOV
+  _template/                       ← session.yaml, calib.yaml, measurements.yaml to copy
+  <YYYY-MM-DD>/                    ← one folder per session date
+    session.yaml                   ← reps, conditions, goals (from the template)
+    calib.yaml                     ← homography points per camera setup (main, pit)
+    events_override.yaml           ← optional hand-corrected contacts (frame pairs)
+    field_calibrate.MOV  field_stand.MOV  pit_calibrate.MOV
+    A/  measurements.yaml  sprint_*.MOV  approach_*.MOV  jump_*.MOV
+    B/  measurements.yaml  ...
 models/
   pose_landmarker_heavy.task       ← not in git (see §7)
+  kokoro/                          ← TTS model for the narrated videos (not in git)
 ```
 
 - **Video must be the original files** (AirDrop, or Share → Options → "All Photos Data"). Re-encoded files often lose 240 fps.
@@ -128,6 +109,10 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
       - Shin, thigh, knee and trunk angles at touchdown and toe-off; thigh range of motion; max knee lift
       - CM vertical oscillation (÷ height), braking (dip in CM forward speed after touchdown)
       - Spring-mass vertical and leg stiffness per kg
+      - Heel recovery (max knee flexion in swing), foot strike (foot angle at touchdown)
+      - Arm action: shoulder range of motion, elbow angle front/back, hand height, hand behind hip, arm–leg timing
+    - **Approach-run simulations (A):** zone speed as % of the best flying sprint, and the distance his speed equation predicts vs the goal (`report.goal_table`).
+    - **Takeoffs (A):** approach speed over the last two steps, last-three step lengths, contact times, CM lowering, takeoff contact time, touchdown (plant) angle, takeoff knee, trunk lean, free-leg knee drive, CM velocity at touchdown/toe-off, takeoff angle, horizontal velocity loss, toe-to-board distance, official vs effective distance, equation prediction (`takeoff.py`, references in 02).
     - **Strides vs flies (A):** how step length and step rate change with speed (his speed strategy).
     - **Pogo:** contact time, flight time, jump height h = g·t_f²/8, **RSI = h / t_c**, vertical stiffness. Right vs left for single-leg.
     - **Broad jump:** distance (takeoff toe → landing heel, via homography); CM takeoff speed and angle; countermovement depth.
@@ -142,6 +127,8 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
     - Then tick the status boxes in §8 below and commit.
 
 ### Rules for the analysis
+- **Use standard sprint and jump terms only** (glossary in [04](04-analysis-method.md#terms)); never invent terms. Explain each term in plain words the first time it appears, and write so a non-specialist can follow.
+- **Athlete A's goal** is 21'9" (6.63 m). Set speed goals with his equation in [02](02-reference-sprint-longjump.md) (≈ 19.6 mph approach speed), not with a generic estimate.
 - **Never invent or estimate data that wasn't measured.** If something is missing, poor quality, or under 120 fps, say so and skip that metric.
 - Every number gets an uncertainty or confidence level. Mean ± SD across steps; n is small, so don't over-claim.
 - Research links are correlational. Frame recommendations as "toward what faster athletes do", to be tested at the retest.
@@ -167,19 +154,35 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
 
 ## 7. Environment
 ```bash
-pip install mediapipe opencv-python numpy scipy pandas matplotlib pyyaml
-# ffmpeg/ffprobe on PATH
+python3 -m venv .venv && .venv/bin/pip install --only-binary :all: -r requirements.txt
+# pinned for macOS 12 x86_64 wheels; PyAV reads per-frame timestamps, so ffprobe is optional
+.venv/bin/python -m pytest -q          # synthetic ground-truth tests
+.venv/bin/python -m runform --help     # stages; run from repo root with PYTHONPATH=src
 mkdir -p models
 curl -L -o models/pose_landmarker_heavy.task \
   https://huggingface.co/spaces/AleNunezArroyo/pose-detection-mediapipe/resolve/main/models/pose_landmarker_heavy.task
 # official copy: https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/latest/pose_landmarker_heavy.task
+
+# PDF reports (reportlab; the macOS system python3 has it): figures + name map per report in results/<date>/pdf_build.json
+python3 tools/build_pdfs.py results/2026-11-15/pdf_build.json
+
+# narrated videos: local TTS (Kokoro-82M) in its own venv, because it needs numpy >= 2
+python3 -m venv .venv-tts && .venv-tts/bin/pip install onnxruntime==1.19.2 "numpy>=2" colorlog espeakng-loader phonemizer-fork soundfile \
+  && .venv-tts/bin/pip install --no-deps kokoro-onnx==0.4.9
+mkdir -p models/kokoro && for f in kokoro-v1.0.onnx voices-v1.0.bin; do curl -L -o models/kokoro/$f \
+  https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/$f; done
+cd src && ../.venv/bin/python -m runform.explainer ../results/2026-11-15/video/RC_shots.yaml
 ```
 
 ## 8. Status
 - [x] Research and reference values
 - [x] Session plan, field setup, agent brief
-- [ ] Baseline session filmed (2026-11-15)
-- [ ] Baseline analysis: Athlete A
-- [ ] Baseline analysis: Athlete B
-- [ ] Retest (every 3–4 weeks)
-- [ ] Athlete A approach / takeoff session (once cleared)
+- [x] Baseline session filmed (2026-11-15): 30 fps renders of 240 fps slo-mo (timing inferred, see results/2026-11-15/qa/timebase.md); no landmark tape; no A photos
+- [x] Baseline analysis: Athlete A (results/2026-11-15/report_A.md)
+- [x] Baseline analysis: Athlete B (results/2026-11-15/report_B.md, incl. backflip; segments video-estimated)
+- [x] Narrated analysis videos (results/2026-11-15/video/video_RC.mp4, video_Vinni.mp4; shot lists *_shots.yaml; render with `python -m runform.explainer`, TTS = Kokoro-82M in .venv-tts)
+- [x] Goal set: 21'9" (6.63 m) ≈ 19.6 mph approach speed by Athlete A's equation; reports corrected (2026-11-15)
+- [x] Arm action, heel recovery and foot strike added to the analysis and to the 2026-11-15 reports
+- [x] Next-session setup ready: plan + field card (01), templates (`data/_template/` session, calib with `pit` setup), takeoff analysis (`takeoff.py`), speed-vs-goal table, reference values (02), terms (04)
+- [ ] Retest + takeoff session (≈ mid-December 2026): copy the templates, file the clips, run `runform all`, then write the reports
+- [ ] Ask other athletes whether they want analysis

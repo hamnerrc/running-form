@@ -1,0 +1,41 @@
+setups:
+  main:
+    reference: still_calibrate.mov
+    frame: 300
+    clips: all
+    notes: "Near row = intersections of the 20/25/30 yard lines with the painted line\
+      \ the orange cones sit on (line fits, sub-px). Far row (y = 3.0 m) = bases of\
+      \ the red bottle (20) and black cylinder (30), read from 6x zoom (\xB11.5 px);\
+      \ far 25 = 25-line \xD7 bottle\u2013cylinder line."
+    points:
+      near_20:
+      - 0.0
+      - 0.0
+      - 294.6
+      - 604.3
+      near_25:
+      - 4.572
+      - 0.0
+      - 1011.8
+      - 598.4
+      near_30:
+      - 9.144
+      - 0.0
+      - 1760.3
+      - 592.1
+      far_20:
+      - 0.0
+      - 3.0
+      - 466.5
+      - 549.0
+      far_25:
+      - 4.572
+      - 3.0
+      - 1015.0
+      - 545.2
+      far_30:
+      - 9.144
+      - 3.0
+      - 1583.0
+      - 541.2
+    holdout: {}

@@ -1,54 +1,68 @@
-# Copy to data/<YYYY-MM-DD>/session.yaml and fill in. Leave unknowns as null.
-date: 2026-11-15
-location: Santa Cruz High football field
-surface: artificial turf
+# Copy to data/<YYYY-MM-DD>/session.yaml and fill in. Leave unknowns as null. Plan: 01-plan-and-setup.md.
+date: null                      # YYYY-MM-DD
+location: Santa Cruz High football field + long-jump runway
+surface: artificial turf (field), track runway (pit)
 weather:
-  wind: null          # e.g. "light headwind on → reps"
+  wind: null          # e.g. "light, toward ← (tailwind on ← reps)"; ribbon on the black cylinder is in frame
   temp_f: null
-  sun: null           # e.g. "behind camera"
-phone_model: null      # e.g. iPhone 15
+  sun: null
+phone_model: iPhone 11
 lens: 1x               # never 0.5x
 capture_fps: 240
+slomo_render: false    # true only if the files are 30 fps renders of the slo-mo (as on 2026-11-15)
 resolution: 1080p
 second_phone_front: false
-raw_backup: null       # where the raw videos are backed up (Git LFS / Drive / none)
+raw_backup: null
 
 zone:
-  start_line: "50-yard line"
-  end_line: "G2-side 40-yard line"
+  start_line: "20-yard line"
+  end_line: "30-yard line"
   length_m: 9.144      # 10 yd, line center to line center
-  across_m: null       # measured cone spacing across the running line (~1.5)
-  running_line: "near hash"
+  across_m: 3.0        # re-measure: cone line → bottle/cylinder line
+  running_line: "between the orange cones (near row, painted line) and the far markers (red bottle, black cylinder)"
 camera:
-  position: "sideline at the 45, runner's right when running →"
-  distance_to_running_line_m: null   # approx
+  position: "near sideline, square to the 25-yard line, hip height"
+  distance_to_running_line_m: null
+pit:
+  runway_width_m: null       # measured edge to edge (usually 1.22)
+  markers: "board front edge, 2.5 m before and 5.0 m before, on both runway edges (6 marks)"
+  camera: "runner's right when running toward the pit, ~10 m from the runway centre, centred ~2.5 m before the board"
 
 reps:
-  # one entry per clip; file paths relative to this folder
-  - {athlete: A, file: A/video/calib.MOV,    type: calibration, direction: null, notes: ""}
-  - {athlete: A, file: A/video/stride75.MOV, type: stride_75,   direction: "→", notes: ""}
-  - {athlete: A, file: A/video/stride90.MOV, type: stride_90,   direction: "→", notes: ""}
-  - {athlete: A, file: A/video/fly1.MOV,     type: fly,         direction: "→", notes: ""}
-  - {athlete: A, file: A/video/fly2.MOV,     type: fly,         direction: "←", notes: ""}
-  - {athlete: A, file: A/video/fly3.MOV,     type: fly,         direction: "→", notes: ""}
-  - {athlete: B, file: B/video/calib.MOV,    type: calibration, direction: null, notes: ""}
-  - {athlete: B, file: B/video/mile1.MOV,    type: mile_pace,   direction: "→", notes: ""}
-  - {athlete: B, file: B/video/mile2.MOV,    type: mile_pace,   direction: "←", notes: ""}
-  - {athlete: B, file: B/video/mile3.MOV,    type: mile_pace,   direction: "→", notes: ""}
-  # optional:
-  # - {athlete: A, file: A/video/pogo2.MOV,  type: pogo_double, direction: null, notes: ""}
-  # - {athlete: A, file: A/video/pogoR.MOV,  type: pogo_right,  direction: null, notes: ""}
-  # - {athlete: A, file: A/video/pogoL.MOV,  type: pogo_left,   direction: null, notes: ""}
-  # - {athlete: A, file: A/video/broad.MOV,  type: broad_jump,  direction: "→", notes: ""}
-  # - {athlete: B, file: B/video/kick.MOV,   type: kick_pace,   direction: "→", notes: ""}
+  # one entry per clip; file paths relative to this folder.
+  # types: calibration · calibration_stand · fly (flying sprint) · approach_sim (full approach, no jump)
+  #        takeoff (full approach + jump into the pit) · mile_pace · kick_pace · pogo_* · backflip
+  # Extra keys on a rep line are kept (e.g. official_m, foul, approach_steps, approach_m, effort, wind, near_side).
+  - {athlete: both, file: field_calibrate.MOV,  type: calibration,       direction: null, notes: "empty zone, 5 s"}
+  - {athlete: both, file: field_stand.MOV,      type: calibration_stand, direction: null, notes: "each athlete 3 s still, side-on"}
+  - {athlete: A, file: A/sprint_1_right.MOV,    type: fly,          direction: "→", effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/sprint_2_left.MOV,     type: fly,          direction: "←", effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/sprint_3_right.MOV,    type: fly,          direction: "→", effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/sprint_4_left.MOV,     type: fly,          direction: "←", effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/approach_1_right.MOV,  type: approach_sim, direction: "→", approach_steps: null, approach_m: null, effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/approach_2_left.MOV,   type: approach_sim, direction: "←", approach_steps: null, approach_m: null, effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/approach_3_right.MOV,  type: approach_sim, direction: "→", approach_steps: null, approach_m: null, effort: null, wind: null, notes: ""}
+  - {athlete: A, file: A/approach_4_left.MOV,   type: approach_sim, direction: "←", approach_steps: null, approach_m: null, effort: null, wind: null, notes: ""}
+  - {athlete: both, file: pit_calibrate.MOV,    type: calibration,  direction: null, notes: "empty runway, markers visible"}
+  # takeoffs: world x points toward the pit, so direction is always "→"; camera on the runner's right → near_side R
+  - {athlete: A, file: A/jump_1.MOV, type: takeoff, direction: "→", near_side: R, official_m: null, foul: null, approach_steps: null, approach_m: null, notes: ""}
+  - {athlete: A, file: A/jump_2.MOV, type: takeoff, direction: "→", near_side: R, official_m: null, foul: null, approach_steps: null, approach_m: null, notes: ""}
+  # other athletes, e.g.:
+  # - {athlete: B, file: B/mile_1_right.MOV, type: mile_pace, direction: "→", notes: ""}
 
 athletes:
   A:
-    shoes: null        # model, or barefoot
-    landmark_tape: true
+    name: RC
+    goal_long_jump_m: 6.63     # 21'9"
+    body_mass_lb: null         # morning of the session
+    shoes: "long-jump spikes"
+    clothes: "fitted short sleeves (arms visible)"
+    landmark_tape: false
+    sleep_h: null
+    soreness_0_10: null
     pain_or_soreness: ""
-  B:
-    shoes: null
-    landmark_tape: null
-    fatigue: "raced a meet the day before"
-    pain_or_soreness: ""
+  # B:
+  #   name: Vinni
+  #   shoes: null
+  #   fatigue: ""
+  #   pain_or_soreness: ""

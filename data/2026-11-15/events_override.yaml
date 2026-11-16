@@ -1,0 +1,15 @@
+# Manual event corrections, checked frame by frame on foot close-ups (frame numbers in the original clip).
+# Each list replaces auto-detection for that clip + foot, so it repeats the auto contacts that were correct.
+A/sprint_2_left.mov:
+  L: [[61, 89], [166, 195], [277, 303]]        # 3rd contact: auto 277–290; white spike over the white "0" — real TO 303 ±1
+A/sprint_3_right_control.mov:
+  R: [[121, 151], [225, 253], [338, 364]]      # 2nd: auto 244–256 (TD on the white 25-yard line) — real 225–253 ±1; 1st (22–43, at the frame edge) dropped
+A/sprint_4_left_control.mov:
+  L: [[85, 108], [188, 217], [303, 324]]       # 2nd: auto 193–206 — real 188–217 ±1
+B/normal_1_right.mov.mov:
+  R: [[173, 217], [330, 372], [495, 537]]      # 2nd/3rd were split mid-stance by tracking; checked: TD 330/495, TO 372/537 (±1–2)
+B/normal_3_right.mov.mov:
+  R: [[239, 285], [403, 451], [569, 613]]      # last: split + late TO (auto 620; real 613 ±2); first (clip edge) dropped
+B/kick_4_right.mov:
+  R: [[149, 181], [281, 316], [424, 460]]      # first contact (frames 33–46) is at the frame edge, foot half tracked — dropped
+# Spot checks of unedited contacts: A TD/TO within ±1 frame; B TO 0–4 frames late (auto contact may read ≤ ~15 ms long).

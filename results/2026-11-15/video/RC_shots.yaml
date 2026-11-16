@@ -1,0 +1,129 @@
+# Narrated analysis video for RC (Athlete A). Render: cd src && ../.venv/bin/python -m runform.explainer ../results/2026-11-15/video/RC_shots.yaml
+# Frame numbers are source frames of the clip (240 fps capture). Numbers in narration/captions come from
+# metrics_A.csv / report_A.md; the ± values are on screen in the captions. Terms: 04-analysis-method.md#terms.
+date: 2026-11-15
+name: RC
+title: "RC · sprint form · 15 Nov 2026"
+voice: am_michael
+speed: 1.0
+
+shots:
+  - say: >-
+      This is RC in a flying sprint: top speed through a ten-yard zone, filmed in super slow motion.
+      Everything you see is eight times slower than real life, and the lines on his body are computer tracking of his joints.
+    views: [{clip: A/sprint_2_left.mov, overlays: [{type: legend}]}]
+    segments: [{from: 0, to: 230, slow: 8}]
+
+  - say: >-
+      His flying sprint speed was nineteen to almost twenty miles an hour. His goal is twenty-one feet nine inches, and by his own
+      speed equation that needs about nineteen point six miles an hour in the approach itself. His approach runs averaged about
+      eighteen point seven, so he needs roughly one more mile an hour.
+    views: [{clip: A/sprint_2_left.mov}]
+    segments: [{from: 231, to: 419, slow: 8}]
+    caption: "Flying sprint 19.0–19.8 mph (8.49–8.83 ± 0.07 m/s) · approach runs 18.7 mph · 21'9\" needs ≈ 19.6 mph (8.77 m/s) approach speed"
+
+  - say: >-
+      Now watch his right leg, in red, while the foot is on the ground. His ground contact time is about a tenth of a second,
+      and the knee bends only a few degrees after touchdown. That short, stiff contact is what elite sprinters do. Keep it.
+    views:
+      - clip: A/sprint_1_right.mov
+        zoom: 2.4
+        overlays: [{type: knee, side: R, frames: [253, 277]}, {type: contact, td: 253, to: 277, label: "ground contact time"}, {type: legend}]
+    segments:
+      - {from: 228, to: 252, slow: 16}
+      - {freeze: 253, w: 1}
+      - {from: 253, to: 259, slow: 60}
+      - {freeze: 259, w: 1}
+      - {from: 259, to: 277, slow: 60}
+      - {freeze: 277, w: 1}
+      - {from: 278, to: 300, slow: 16}
+    caption: "Ground contact time 107 ± 10 ms per step (elite ≈ 90) · knee bends only ≈ 4° more after touchdown (± 5° per step)"
+
+  - say: >-
+      His step rate, about four and a half steps per second, is close to elite sprinters. His step length is what's short:
+      about two leg lengths per step, where elite men are close to two and a half. A longer step comes from more force into the
+      ground, so that's a job for the weight room, Romanian deadlifts and broad jumps, not a change in form.
+    views:
+      - clip: A/sprint_1_right.mov
+        zoom: 1.6
+        overlays:
+          - type: footprints
+            prints: [[40, R], [94, L], [148, R], [200, L], [253, R]]
+            labels: ["6.5 ft", "6.0 ft", "6.3 ft", "5.9 ft"]
+    segments:
+      - {from: 30, to: 265, slow: 8}
+      - {freeze: 265, w: 1}
+    caption: "Step rate 4.5 ± 0.35 per second (elite ≈ 4.7) · step length 6 ft 4 in (1.93 ± 0.05 m) = 2.0 leg lengths (elite men ≈ 2.4)"
+    cards:
+      - {text: "Longer steps = more force into the ground → strength training, not a form cue", segs: [1]}
+
+  - say: >-
+      Here's the main thing to change: touchdown distance, how far in front of his hips the foot lands. Frame by frame into
+      touchdown, the foot lands about fifteen inches ahead of his hips, still moving forward, which causes braking. Faster
+      sprinters land closer under the body, with the foot already sweeping back. Cue: step down and back, land under your hips.
+      Drills: A-skips into straight-leg bounds, and wicket runs, with mini-hurdles about six and a half feet apart.
+    views:
+      - clip: A/sprint_1_right.mov
+        zoom: 2.4
+        overlays:
+          - {type: hip_foot, frame: 253, side: R, label: "touchdown distance 14 in (0.35 m)", arrow: "foot still moving forward"}
+          - {type: hip_foot, frame: 361, side: R, label: "touchdown distance 17 in (0.44 m)", arrow: "foot still moving forward"}
+    segments:
+      - {from: 236, to: 252, slow: 60}
+      - {freeze: 253, w: 1.2}
+      - {from: 254, to: 345, slow: 12}
+      - {from: 346, to: 360, slow: 60}
+      - {freeze: 361, w: 1.6}
+    caption: "Touchdown distance 15 in on average (0.38 ± 0.06 m) · goal: closer under the body, without longer ground contact"
+    cards:
+      - {text: "Cue: “Step down and back — land under your hips”", segs: [4]}
+      - {text: "Drills: A-skips → straight-leg bounds · wicket runs, mini-hurdles ≈ 6½ ft apart", segs: [4], y: 330}
+
+  - say: >-
+      In the approach-run simulations, his step length stays the same, but his flight time, the time in the air each step, is
+      about twenty milliseconds longer. So his step rate drops from four and a half to about four steps per second. Try keeping
+      the same quick rhythm and just relax. We only have a few steps of this, so it's something to test.
+    views:
+      - clip: A/sprint_1_right.mov
+        anchor: 277
+        zoom: 1.9
+        tag: "flying sprint"
+        overlays: [{type: flight, to: 277, td: 305, label: "flight time"}]
+      - clip: A/sprint_3_right_control.mov
+        anchor: 253
+        zoom: 1.9
+        tag: "approach-run simulation"
+        overlays: [{type: flight, to: 253, td: 286, label: "flight time"}]
+    segments:
+      - {from: -60, to: -1, slow: 8}
+      - {from: 0, to: 40, slow: 30}
+      - {freeze: 40, w: 1}
+      - {from: 41, to: 90, slow: 12}
+    caption: "Flight time per step: 115 ± 17 ms flying sprint vs 137 ± 11 ms approach run · step rate 4.5 → 4.1 per second"
+
+  - say: >-
+      His arms stay in time with his legs, but the arm swing is lopsided. It goes well behind him, but in front the hand only
+      reaches mid-chest. Research says the arms mainly balance the legs, so this is low priority. One thing to test: hip to lip,
+      hands from the hip pocket up to chin height.
+    views:
+      - clip: A/sprint_1_right.mov
+        zoom: 2.4
+        overlays: [{type: arm, side: R, frames: [253, 361]}, {type: legend}]
+    segments:
+      - {from: 253, to: 273, slow: 24}
+      - {freeze: 274, w: 1}
+      - {from: 275, to: 335, slow: 24}
+      - {freeze: 336, w: 1}
+      - {from: 337, to: 361, slow: 24}
+    caption: "Shoulder range of motion 76 ± 8° (Olympic 200 m finalists ≈ 118–135°, second-hand) · arm–leg timing −11 ± 5 ms (in time)"
+    cards:
+      - {text: "Test: “hip to lip” — hand from the hip pocket to chin height, elbow ≈ 90°", segs: [3, 4]}
+
+  - say: >-
+      His right and left legs look the same, including his takeoff leg. Next session we'll film again, add jumps into the pit,
+      and check touchdown distance, step length, and approach speed against the goal.
+    views: [{clip: A/sprint_4_left_control.mov, overlays: [{type: legend}]}]
+    segments: [{from: 0, to: 418, slow: 8}]
+    caption: "Right vs left: every difference is smaller than the normal step-to-step variation (e.g. ground contact 108 vs 108 ms)"
+    cards:
+      - {text: "Next session (≈ mid-December):\n• touchdown distance\n• step length\n• approach speed vs 19.6 mph\n• takeoffs into the pit"}

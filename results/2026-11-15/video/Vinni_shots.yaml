@@ -1,0 +1,185 @@
+# Narrated analysis video for Vinni (Athlete B). Render: .venv/bin/python -m runform.explainer <this file>
+# Frame numbers are source frames (240 fps capture). Numbers from metrics_B.csv / report_B.md / qa/backflip.md.
+date: 2026-11-15
+name: Vinni
+title: "Vinni · mile pace + backflip · 15 Nov 2026"
+voice: am_michael
+speed: 1.0
+
+shots:
+- say: This is Vinni running at about his mile race pace, the day after a race, so he's tired here. Everything is eight times slower
+    than real life, and the lines on his body are computer tracking of his joints.
+  tts: This is Vinny running at about his mile race pace, the day after a race, so he's tired here. Everything is eight times slower
+    than real life, and the lines on his body are computer tracking of his joints.
+  views:
+  - clip: B/normal_1_right.mov.mov
+    overlays:
+    - type: legend
+  segments:
+  - from: 60
+    to: 420
+    slow: 8
+  caption: 'Raced a meet the day before: this is tired running, not his fresh form'
+- say: He ran between a four forty-four and a four fifty-eight mile pace. His form is clean. His shin is nearly vertical at touchdown,
+    his touchdown distance is small, so the foot lands only a little in front of his hips, his knee bends a normal amount during ground
+    contact, and he pushes off with a nearly straight leg.
+  views:
+  - clip: B/normal_1_right.mov.mov
+    zoom: 2.4
+    overlays:
+    - type: shin
+      side: R
+      frames:
+      - 173
+      - 173
+      label: shin almost upright
+    - type: knee
+      side: R
+      frames:
+      - 174
+      - 217
+    - type: contact
+      td: 173
+      to: 217
+      label: ground contact time
+  segments:
+  - from: 120
+    to: 172
+    slow: 8
+  - freeze: 173
+    w: 1.2
+  - from: 174
+    to: 188
+    slow: 30
+  - freeze: 188
+    w: 1
+  - from: 189
+    to: 217
+    slow: 30
+  - freeze: 217
+    w: 1
+  caption: Pace 4:44–4:58 per mile (5.40–5.67 ± 0.03 m/s) · shin 6.5 ± 2.5° from vertical · touchdown distance 10 in (0.26 ± 0.08 m)
+    · knee bends 49 ± 3°
+- say: 'The one number that stands out is vertical oscillation, how much his centre of mass rises and falls each step. The yellow dot
+    is his centre of mass. At mile pace it moves up and down about four inches every step. In his kick, running much faster, it''s only
+    about three. Lower vertical oscillation usually means better running economy. Cue: run tall and quick, push the ground back, not
+    up.'
+  views:
+  - clip: B/normal_1_right.mov.mov
+    anchor: 173
+    zoom: 1.9
+    tag: mile pace
+    overlays:
+    - type: com
+      window: 84
+      label: vertical oscillation ≈ 4 in
+  - clip: B/kick_4_right.mov
+    anchor: 149
+    zoom: 1.9
+    tag: kick
+    overlays:
+    - type: com
+      window: 66
+      label: vertical oscillation ≈ 3 in
+  segments:
+  - from: -40
+    to: 320
+    slow: 8
+  caption: 'Vertical oscillation per step: 10 ± 2 cm (4 in) at mile pace vs 7 ± 2 cm (3 in) in the kick · tired data, small effect'
+  cards:
+  - text: 'Cue: “Run tall and quick — push the ground back, not up”'
+    y: 870
+- say: To practise that, do mile-pace strides with a metronome set a little faster than his natural cadence, about a hundred and eighty
+    steps per minute, plus pogo hops, small quick jumps off the ankles. Back off if his shins start to hurt.
+  views:
+  - clip: B/normal_3_right.mov.mov
+    overlays:
+    - type: com
+      window: 84
+      band: false
+  segments:
+  - from: 140
+    to: 620
+    slow: 8
+  caption: Cadence now 173 ± 8 steps per minute → try ≈ 180 · he has a history of shin splints
+  cards:
+  - text: 'Strides with a metronome at ≈ 180 steps/min
+
+      4–6 × 100 m at mile pace'
+  - text: 'Pogo hops + ankling drills
+
+      2 × 20 seconds'
+    y: 330
+- say: How he speeds up is already right. From mile pace to his kick, his step rate rises about twenty-five percent, his step length
+    a bit, and his ground contact time drops. That's how top fifteen-hundred-metre runners do it, so leave the kick alone.
+  views:
+  - clip: B/kick_4_right.mov
+    overlays:
+    - type: legend
+  segments:
+  - from: 70
+    to: 480
+    slow: 8
+  caption: 'Mile pace → kick: step rate 2.9 → 3.6 per second (+25%) · step length +14% · ground contact time 185 → 143 ms (± 8 ms)'
+- say: 'And a bonus: the backflip. The jump is great: straight up, his centre of mass rises about fourteen inches, and he lands right
+    where he took off. But watch his upper body. It stays stuck, leaning back, while he rises, and he only tucks his knees at the very
+    top. That''s too late, so he lands about a quarter turn short, bent forward with almost straight legs. The fix: knees to your chest
+    right after you leave the ground, then land in a small squat with your chest up. Practise on a mat or with a spotter.'
+  views:
+  - clip: B/backflip.mov
+    flip: true
+    zoom: 2.0
+    cam_dv: -60
+    overlays:
+    - type: flip
+      toe_off: 935
+  segments:
+  - from: 880
+    to: 1130
+    slow: 8
+  - freeze: 935
+    w: 1
+  - from: 936
+    to: 1000
+    slow: 30
+  - freeze: 1000
+    w: 1
+  - from: 1001
+    to: 1091
+    slow: 16
+  - freeze: 1091
+    w: 1.4
+  caption: In the air 0.65 ± 0.01 s · rises 14 in (0.35 ± 0.03 m) · lands 266 ± 8° of the way round · angles in the tuck ± 10°
+  cards:
+  - text: 'Push-off: arms up, jumping straight up — good'
+    segs:
+    - 1
+  - text: Upper body stuck ≈ 52° back while he rises
+    segs:
+    - 2
+  - text: Tuck only starts at the top of the jump
+    segs:
+    - 3
+  - text: 'Lands ≈ ¼ turn short, legs almost straight
+
+      Fix: knees to chest straight away, land in a small squat, chest up'
+    segs:
+    - 5
+- say: His left and right sides look the same. We'll film again in three to four weeks, once fresh and once tired, to compare.
+  views:
+  - clip: B/normal_2_left.mov.mov
+    overlays:
+    - type: legend
+  segments:
+  - from: 40
+    to: 400
+    slow: 8
+  caption: No left-right difference bigger than the normal step-to-step variation
+  cards:
+  - text: 'Retest in 3–4 weeks, fresh and tired:
+
+      • bounce per step
+
+      • steps per minute
+
+      • backflip tuck timing'

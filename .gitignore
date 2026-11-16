@@ -14,3 +14,12 @@ models/
 __pycache__/
 *.pyc
 .venv/
+.venv-tts/
+
+# Pipeline intermediates (pose tracks etc.), regenerable
+results/**/work/
+results/**/video/*_work/
+demo_out/
+.pytest_cache/
+
+.DS_Store

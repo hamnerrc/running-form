@@ -1,0 +1,13 @@
+# Pinned to versions with prebuilt wheels for macOS 12 x86_64 / Python 3.12
+# (newer opencv-python builds from source there). Install with:
+#   python3 -m venv .venv && .venv/bin/pip install --only-binary :all: -r requirements.txt
+mediapipe==0.10.21
+opencv-python==4.10.0.84
+opencv-contrib-python==4.10.0.84
+numpy==1.26.4
+scipy
+pandas
+matplotlib
+pyyaml
+av            # PyAV: frame-accurate PTS without needing ffprobe on PATH
+pytest

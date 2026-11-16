@@ -1,0 +1,54 @@
+date: 2026-11-15
+location: Santa Cruz High football field
+surface: artificial turf
+weather:
+  wind: "slight, blowing toward ← (image left): tailwind on ← reps, headwind on → reps"
+  temp_f: null
+  sun: "overcast"
+phone_model: iPhone 11          # from file metadata
+lens: 1x
+capture_fps: 240
+# The clips are 30 fps renders of the slo-mo (Photos export), not the 240 fps originals.
+# Each rendered frame = one captured frame = 1/240 s. Verified: no speed ramps (runner px/frame constant across
+# every clip) and the backflip's flight time comes out physically plausible only at 240 fps (see qa/timebase.md).
+slomo_render: true
+resolution: 1080p
+second_phone_front: false
+raw_backup: null
+
+zone:
+  start_line: "20-yard line"
+  end_line: "30-yard line"
+  length_m: 9.144      # 10 yd, line center to line center
+  across_m: 3.0        # measured cone spacing across the running line (user, 2026-11-15)
+  running_line: "between the orange cones (near row, on a painted line) and the far markers (red bottle, black cylinder)"
+camera:
+  position: "near sideline, square to the 25-yard line"
+  distance_to_running_line_m: null   # computed by calib
+
+reps:
+  - {athlete: both, file: still_calibrate.mov,        type: calibration,       direction: null, notes: "empty zone, real-time 30 fps (not slo-mo)"}
+  - {athlete: both, file: stand_still_calibrate.mov,  type: calibration_stand, direction: null, notes: "A (black, right) and B (grey, left) standing, then turn around; no tape; real-time 30 fps"}
+  - {athlete: A, file: A/sprint_1_right.mov,          type: fly,         direction: "→", notes: "full sprint; headwind (slight)"}
+  - {athlete: A, file: A/sprint_2_left.mov,           type: fly,         direction: "←", notes: "full sprint; tailwind (slight)"}
+  - {athlete: A, file: A/sprint_3_right_control.mov,  type: fly_control, direction: "→", notes: "full sprint with control (long-jump approach sim); headwind"}
+  - {athlete: A, file: A/sprint_4_left_control.mov,   type: fly_control, direction: "←", notes: "full sprint with control (long-jump approach sim); tailwind"}
+  - {athlete: B, file: B/normal_1_right.mov.mov,      type: mile_pace,   direction: "→", notes: "~5:00 mile pace; headwind"}
+  - {athlete: B, file: B/normal_2_left.mov.mov,       type: mile_pace,   direction: "←", notes: "~5:00 mile pace; tailwind"}
+  - {athlete: B, file: B/normal_3_right.mov.mov,      type: mile_pace,   direction: "→", notes: "~5:00 mile pace; headwind"}
+  - {athlete: B, file: B/kick_4_right.mov,            type: kick_pace,   direction: "→", notes: "kick pace; headwind"}
+  - {athlete: B, file: B/backflip.mov,                type: backflip,    direction: null, notes: "standing backflip (extra)"}
+
+athletes:
+  A:
+    goal_long_jump_m: 6.63     # 21'9" (set 2026-11-15); speed needed comes from his equation (02-reference)
+    shoes: "his long-jump spikes"
+    clothes: "competition clothes; black shirt and shorts"
+    landmark_tape: false     # no tape visible in any clip
+    pain_or_soreness: ""
+  B:
+    shoes: null
+    clothes: "grey shirt, khaki/olive shorts"
+    landmark_tape: false
+    fatigue: "raced a meet the day before"
+    pain_or_soreness: ""

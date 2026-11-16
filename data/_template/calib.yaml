@@ -1,0 +1,32 @@
+# Copy to data/<YYYY-MM-DD>/calib.yaml. Pixel coordinates (u, v) must be read off THIS session's calibration
+# clips (`runform calib-sheet`): the camera never lands in exactly the same spot. World coordinates stay fixed.
+# Point format: name: [x_m, y_m, u_px, v_px]. Run `runform calib <session> --no-refine` afterwards.
+setups:
+  main:                       # field camera; "all" = every clip not listed by another setup
+    reference: field_calibrate.MOV
+    frame: 30
+    clips: all
+    notes: "x along the running line, 0 at the 20-yard line; y across, 0 on the cone line, 3.0 at bottle/cylinder"
+    points:
+      near_20: [0.0,   0.0, null, null]   # 20-yard line × painted cone line (fit both lines, intersect)
+      near_25: [4.572, 0.0, null, null]
+      near_30: [9.144, 0.0, null, null]
+      far_20:  [0.0,   3.0, null, null]   # red bottle base
+      far_25:  [4.572, 3.0, null, null]   # 25-yard line × bottle–cylinder line
+      far_30:  [9.144, 3.0, null, null]   # black cylinder base
+    holdout: {}
+  pit:                        # pit camera
+    reference: pit_calibrate.MOV
+    frame: 30
+    clips: [A/jump_1.MOV, A/jump_2.MOV]
+    board_x_m: 0.0            # world x of the board's front edge (the edge nearest the pit)
+    y_run: 0.61               # runway centre line = half the measured runway width
+    notes: "x along the runway toward the pit, 0 at the board front edge; y across, 0 at the near edge"
+    points:
+      board_near:  [0.0,  0.0,  null, null]
+      board_far:   [0.0,  1.22, null, null]   # replace 1.22 with the measured runway width
+      m2p5_near:   [-2.5, 0.0,  null, null]
+      m5_near:     [-5.0, 0.0,  null, null]
+      m5_far:      [-5.0, 1.22, null, null]
+    holdout:
+      m2p5_far:    [-2.5, 1.22, null, null]   # not used in the fit: checks the calibration

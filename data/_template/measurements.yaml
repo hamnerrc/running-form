@@ -3,6 +3,7 @@
 # lateral malleolus (outer ankle bone).
 athlete: A
 height_cm: 175.3
+body_mass_kg: null   # optional: converts per-kg force/stiffness to N and kN/m
 right:
   leg_length_floor_to_trochanter_cm: null
   thigh_trochanter_to_knee_line_cm: null

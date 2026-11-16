@@ -1,0 +1,32 @@
+# Athlete A, taken 2026-11-14 (evening before filming). Barefoot. Centimeters.
+# Uncertainty ±0.5 cm per measurement (rounding + landmark placement), as stated by the measurer.
+# Landmarks: greater trochanter, lateral knee joint line, lateral malleolus. Same spots get the landmark tape on 11-15.
+athlete: A
+height_cm: 175.3
+body_mass_kg: 61.7     # 136.0 lb (user, 2026-11-15; units assumed lb — 136 kg is implausible). ±0.5 kg (scale + clothing unknown)
+measurement_uncertainty_cm: 0.5
+average_sides: true   # segment lengths: L/R differences (≤1 cm) are within measurement error, so the analysis
+                      # uses the L/R mean. Raw per-side values kept below. Knee-to-wall is NOT averaged.
+right:
+  leg_length_floor_to_trochanter_cm: 97.0    # = thigh + shank + malleolus height (47 + 41 + 9)
+  thigh_trochanter_to_knee_line_cm: 47.0   # corrected from 52
+  shank_knee_line_to_malleolus_cm: 41.0
+  malleolus_height_cm: 9.0
+  foot_length_cm: 24.5
+  knee_to_wall_cm: 7.0
+  knee_to_wall_in: 2.76     # = 7.0 cm
+left:
+  leg_length_floor_to_trochanter_cm: 98.5    # = thigh + shank + malleolus height (48 + 42 + 8.5)
+  thigh_trochanter_to_knee_line_cm: 48.0   # corrected from 52
+  shank_knee_line_to_malleolus_cm: 42.0
+  malleolus_height_cm: 8.5
+  foot_length_cm: 25.0
+  knee_to_wall_cm: 12.5
+  knee_to_wall_in: 4.92     # = 12.5 cm
+notes: >
+  Corrected 2026-11-15: thighs 48 L / 47 R (were 52/52); floor→trochanter updated to match
+  (thigh + shank + malleolus height). Each value ±0.5 cm; leg length, as a sum of three, ±1.5 cm worst case.
+# MediaPipe thigh/shank for A standing still (stand_still_calibrate.mov, eye-height normalised, L/R mean).
+# MediaPipe's hip is a joint-centre estimate, not the trochanter: tracked thigh ≈ 0.87 × tape thigh.
+# Used only as the reference for the per-frame segment-length check. ±3%.
+mediapipe_standing_segments_m: {thigh: 0.413, shank: 0.414}

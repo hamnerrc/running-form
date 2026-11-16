@@ -1,0 +1,72 @@
+{
+ "RC": {
+  "md": "results/2026-11-15/report_A.md",
+  "pdf": "results/2026-11-15/report_RC.pdf",
+  "names": {
+   "Athlete A": "RC",
+   "Athlete B": "Vinni",
+   "`metrics_A.csv` and `report_A_data.md`": "the per-step data files (metrics_A.csv, report_A_data.md)",
+   "__title": "RC — baseline sprint analysis",
+   "__footer": "RC · baseline sprint analysis · 2026-11-15"
+  },
+  "figures": {
+   "Metrics (near-side leg, mean ± SD across steps)": [
+    [
+     "results/2026-11-15/figures/pdf/rc_steps.png",
+     "Every step of the four runs. Filled = near-side leg (high confidence), hollow = far side. The right leg is on the near side on → runs, the left leg on ← runs.",
+     1.0
+    ]
+   ],
+   "Arm action (near-side arm, flying sprints, n = 5 strides)": [
+    [
+     "results/2026-11-15/figures/pdf/rc_arms.jpg",
+     "Right arm at the front and the back of one swing (flying sprint →). In front the upper arm only reaches the side of the trunk (hand at mid-chest); at the back it swings well behind with the elbow opening.",
+     1.0
+    ]
+   ],
+   "2. Reduce touchdown distance with an active foot strike (confidence: medium)": [
+    [
+     "results/2026-11-15/figures/pdf/rc_td_pair_c2.jpg",
+     "Touchdown, near-side leg: right foot (flying sprint →) and left foot (flying sprint ←). The foot lands well ahead of the hips; the shin is close to vertical.",
+     1.0
+    ]
+   ]
+  }
+ },
+ "Vinni": {
+  "md": "results/2026-11-15/report_B.md",
+  "pdf": "results/2026-11-15/report_Vinni.pdf",
+  "names": {
+   "Athlete A": "RC",
+   "Athlete B": "Vinni",
+   "__title": "Vinni — baseline mile-pace analysis + backflip",
+   "__footer": "Vinni · baseline mile-pace analysis · 2026-11-15"
+  },
+  "figures": {
+   "Mile pace vs kick (near-side leg, mean ± SD across steps)": [
+    [
+     "results/2026-11-15/figures/pdf/v_steps.png",
+     "Every step of the four runs. Filled = near-side leg, hollow = far side. From mile pace to kick: shorter ground contact, higher step rate, lower vertical oscillation.",
+     1.0
+    ],
+    [
+     "results/2026-11-15/figures/pdf/v_pair_c2.jpg",
+     "Mile pace, right foot: touchdown and toe-off.",
+     0.75
+    ]
+   ],
+   "Backflip critique (extra)": [
+    [
+     "results/2026-11-15/figures/B_backflip_keyframes.jpg",
+     "Backflip key frames with tracked skeleton; time is from toe-off.",
+     1.0
+    ],
+    [
+     "results/2026-11-15/figures/pdf/v_flip_traces.png",
+     "Shaded = flight. The trunk stops rotating at about 52° while he rises (stall), the tuck starts at the top, and he lands at 266° of the 360° needed.",
+     1.0
+    ]
+   ]
+  }
+ }
+}
