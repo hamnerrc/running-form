@@ -1,130 +1,142 @@
-# Narrated analysis video for Vinni (Athlete B). Render: .venv/bin/python -m runform.explainer <this file>
-# Frame numbers are source frames (240 fps capture). Numbers from metrics_B.csv / report_B.md / qa/backflip.md.
-date: 2026-11-15
+# Narrated analysis video for Vinni (Athlete B), built around the key positions professional coaches judge.
+# Render: cd src && ../.venv/bin/python -m runform.explainer ../results/2026-11-15/video/Vinni_shots.yaml
+# Frame numbers are source frames (240 fps). Numbers: positions_B.md/.csv, metrics_B.csv, report_B.md, qa/backflip.md.
+date: '2026-11-15'
 name: Vinni
-title: "Vinni · mile pace + backflip · 15 Nov 2026"
+title: Vinni · mile & kick vs the professionals · 15 Nov 2026
 voice: am_michael
 speed: 1.0
-
 shots:
-- say: This is Vinni running at about his mile race pace, the day after a race, so he's tired here. Everything is eight times slower
-    than real life, and the lines on his body are computer tracking of his joints.
-  tts: This is Vinny running at about his mile race pace, the day after a race, so he's tired here. Everything is eight times slower
-    than real life, and the lines on his body are computer tracking of his joints.
+- say: This is Vinni at about mile race pace, eight times slower than real life, the day after a race. We judged his stride at the key positions
+    coaches use, and compared him with the 2017 world championship fifteen-hundred-metre final, and, for his kick, with sprinters.
   views:
   - clip: B/normal_1_right.mov.mov
     overlays:
     - type: legend
   segments:
   - from: 60
-    to: 420
+    to: 400
     slow: 8
-  caption: 'Raced a meet the day before: this is tired running, not his fresh form'
-- say: He ran between a four forty-four and a four fifty-eight mile pace. His form is clean. His shin is nearly vertical at touchdown,
-    his touchdown distance is small, so the foot lands only a little in front of his hips, his knee bends a normal amount during ground
-    contact, and he pushes off with a nearly straight leg.
+  caption: 'Pace 4:44–4:58 per mile (5.40–5.67 ± 0.03 m/s) · fatigued: raced the day before'
+  tts: This is Vinny at about mile race pace, eight times slower than real life, the day after a race. We judged his stride at the key positions
+    coaches use, and compared him with the 2017 world championship fifteen-hundred-metre final, and, for his kick, with sprinters.
+- say: The biggest thing is the leg in the air at touchdown. Watch his right leg, in red. When his left foot lands, the right knee is still about
+    forty centimetres behind the other knee, and the foot is half a metre behind his hips. Most of his leg motion happens behind his body. Coaches
+    call that back-side mechanics.
   views:
   - clip: B/normal_1_right.mov.mov
-    zoom: 2.4
+    zoom: 2.5
     overlays:
-    - type: shin
+    - type: kneegap
+      frame: 249
+      swing: R
+      stance: L
+      label: swing knee 42 cm behind the other knee
+    - type: legend
+  segments:
+  - from: 225
+    to: 248
+    slow: 24
+  - freeze: 249
+    w: 2
+  caption: Thigh separation at touchdown −55 ± 5° (all 20 touchdowns −42° to −66°) · swing knee 39 ± 5 cm behind · heel 0.51 ± 0.06 m behind the
+    hips
+- say: Even at full support, with his body right over the foot, the swing knee still hasn't caught up. And the thigh takes about a sixth of a
+    second after toe-off just to swing back to vertical. Knee lift is only fifty degrees.
+  views:
+  - clip: B/normal_1_right.mov.mov
+    zoom: 2.3
+    overlays:
+    - type: thigh
       side: R
       frames:
-      - 173
-      - 173
-      label: shin almost upright
-    - type: knee
-      side: R
-      frames:
-      - 174
       - 217
-    - type: contact
-      td: 173
-      to: 217
-      label: ground contact time
+      - 265
+      label: right thigh
+    - type: kneegap
+      frame: 263
+      swing: R
+      stance: L
+      label: still behind at full support
+    - type: legend
   segments:
-  - from: 120
-    to: 172
-    slow: 8
-  - freeze: 173
-    w: 1.2
-  - from: 174
-    to: 188
-    slow: 30
-  - freeze: 188
-    w: 1
-  - from: 189
-    to: 217
-    slow: 30
+  - from: 205
+    to: 216
+    slow: 16
   - freeze: 217
-    w: 1
-  caption: Pace 4:44–4:58 per mile (5.40–5.67 ± 0.03 m/s) · shin 6.5 ± 2.5° from vertical · touchdown distance 10 in (0.26 ± 0.08 m)
-    · knee bends 49 ± 3°
-- say: 'The one number that stands out is vertical oscillation, how much his centre of mass rises and falls each step. The yellow dot
-    is his centre of mass. At mile pace it moves up and down about four inches every step. In his kick, running much faster, it''s only
-    about three. Lower vertical oscillation usually means better running economy. Cue: run tall and quick, push the ground back, not
-    up.'
+    w: 0.6
+  - from: 218
+    to: 262
+    slow: 24
+  - freeze: 263
+    w: 1.4
+  caption: 'Full support: swing knee 11 ± 10 cm behind the stance knee · 173 ± 49 ms from toe-off until the thigh passes vertical · knee lift
+    50 ± 4°'
+- say: At toe-off he pushes until the leg is completely straight, knee at about a hundred and seventy-two degrees. Research on running economy
+    links less leg extension at toe-off with using less energy, and a leg pushed far behind has further to come back.
   views:
   - clip: B/normal_1_right.mov.mov
-    anchor: 173
-    zoom: 1.9
-    tag: mile pace
+    zoom: 2.5
     overlays:
-    - type: com
-      window: 84
-      label: vertical oscillation ≈ 4 in
-  - clip: B/kick_4_right.mov
-    anchor: 149
-    zoom: 1.9
-    tag: kick
-    overlays:
-    - type: com
-      window: 66
-      label: vertical oscillation ≈ 3 in
+    - type: joint
+      frame: 217
+      side: R
+      joint: knee
+      label: push-off knee {a:.0f}°
+      dx: 45
+    - type: legend
   segments:
-  - from: -40
-    to: 320
-    slow: 8
-  caption: 'Vertical oscillation per step: 10 ± 2 cm (4 in) at mile pace vs 7 ± 2 cm (3 in) in the kick · tired data, small effect'
-  cards:
-  - text: 'Cue: “Run tall and quick — push the ground back, not up”'
-    y: 870
-- say: To practise that, do mile-pace strides with a metronome set a little faster than his natural cadence, about a hundred and eighty
-    steps per minute, plus pogo hops, small quick jumps off the ankles. Back off if his shins start to hurt.
+  - from: 185
+    to: 216
+    slow: 24
+  - freeze: 217
+    w: 1.6
+  caption: 'Push-off knee 172 ± 4° · hip 203 ± 5° (sprinters leave at 154° / 196°) · Moore 2016: less extension at toe-off → better economy'
+- say: Here's why it matters most. In his kick, he keeps the same pattern. The white figure is a world-class sprinter at touchdown, drawn to his
+    size. His knee is far behind it. Distance runners don't switch to sprint mechanics on their own, so the last two hundred metres of a race
+    is where this costs him.
+  views:
+  - clip: B/kick_4_right.mov
+    zoom: 2.5
+    overlays:
+    - type: kneegap
+      frame: 210
+      swing: R
+      stance: L
+      label: swing knee 38 cm behind
+    - type: model
+      frame: 210
+      stance: L
+      pos: td
+      segs:
+      - 2
+      label: white = world-class sprinter
+    - type: legend
+  segments:
+  - from: 185
+    to: 209
+    slow: 24
+  - freeze: 210
+    w: 1
+  - freeze: 210
+    w: 2
+  caption: 'Kick 7.58 m/s: thigh separation −57 ± 10° (world-class sprint −10°) · knee lift 55° (slowest sprint group 64°) · thigh speed 341 °/s
+    (409)'
+- say: 'He also leans forward about thirteen degrees at mile pace. Elite milers run taller, and stay upright as they speed up. What''s already
+    elite-level: his knee at landing, his shin close to vertical, and the foot landing a normal distance in front, all matching the world final.
+    And he speeds up mostly by raising his step rate, like they do.'
   views:
   - clip: B/normal_3_right.mov.mov
     overlays:
-    - type: com
-      window: 84
-      band: false
-  segments:
-  - from: 140
-    to: 620
-    slow: 8
-  caption: Cadence now 173 ± 8 steps per minute → try ≈ 180 · he has a history of shin splints
-  cards:
-  - text: 'Strides with a metronome at ≈ 180 steps/min
-
-      4–6 × 100 m at mile pace'
-  - text: 'Pogo hops + ankling drills
-
-      2 × 20 seconds'
-    y: 330
-- say: How he speeds up is already right. From mile pace to his kick, his step rate rises about twenty-five percent, his step length
-    a bit, and his ground contact time drops. That's how top fifteen-hundred-metre runners do it, so leave the kick alone.
-  views:
-  - clip: B/kick_4_right.mov
-    overlays:
     - type: legend
   segments:
-  - from: 70
-    to: 480
+  - from: 140
+    to: 560
     slow: 8
-  caption: 'Mile pace → kick: step rate 2.9 → 3.6 per second (+25%) · step length +14% · ground contact time 185 → 143 ms (± 8 ms)'
-- say: 'And a bonus: the backflip. The jump is great: straight up, his centre of mass rises about fourteen inches, and he lands right
-    where he took off. But watch his upper body. It stays stuck, leaning back, while he rises, and he only tucks his knees at the very
-    top. That''s too late, so he lands about a quarter turn short, bent forward with almost straight legs. The fix: knees to your chest
-    right after you leave the ground, then land in a small squat with your chest up. Practise on a mat or with a spotter.'
+  caption: 'Trunk lean 13 ± 4° · stance knee at touchdown 153° (world 1500 m final 154°) · foot 0.31 m ahead of CM (0.35) · kick: step rate +25%'
+- say: 'A bonus: the backflip. The jump itself is great, straight up, and he lands where he took off. But his upper body stays leaning back while
+    he rises, and he only tucks at the very top, so he lands about a quarter turn short with almost straight legs. Fix: knees to your chest right
+    after you leave the ground, then land in a small squat, chest up. Practise on a mat or with a spotter.'
   views:
   - clip: B/backflip.mov
     flip: true
@@ -165,21 +177,27 @@ shots:
       Fix: knees to chest straight away, land in a small squat, chest up'
     segs:
     - 5
-- say: His left and right sides look the same. We'll film again in three to four weeks, once fresh and once tired, to compare.
+- say: 'The plan. One: sprint mechanics for the kick, with A-skips, dribbles, wicket runs and kick-speed strides, plus knee drives for the hip
+    flexors. Two: at mile pace, pick the foot up under you instead of pushing it back, with a slightly quicker step rate. Three: run tall. We''ll
+    retest in three to four weeks.'
   views:
   - clip: B/normal_2_left.mov.mov
     overlays:
     - type: legend
   segments:
   - from: 40
-    to: 400
+    to: 520
     slow: 8
-  caption: No left-right difference bigger than the normal step-to-step variation
   cards:
-  - text: 'Retest in 3–4 weeks, fresh and tired:
+  - text: '1  Kick: knees up and through
 
-      • bounce per step
+      A-skips · dribbles · wicket runs · kick-speed strides
 
-      • steps per minute
+      Knee drives · hanging knee raises'
+  - text: '2  Mile pace: pick the foot up, don''t push it back
 
-      • backflip tuck timing'
+      Strides at ≈ 180 steps/min'
+    y: 430
+  - text: 3  Run tall, hips under you
+    y: 600
+  caption: 'Retest targets (kick): thigh separation −57° → −35° · knee lift 55° → 62°+ · push-off knee ≤ 165°'

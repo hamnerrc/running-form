@@ -1,107 +1,175 @@
 1
-00:00:00,350 --> 00:00:07,119
-This is RC in a flying sprint: top speed through a ten-yard zone, filmed in super slow motion.
+00:00:00,350 --> 00:00:04,340
+This is RC at top speed, eight times slower than real life.
 
 2
-00:00:07,119 --> 00:00:15,689
-Everything you see is eight times slower than real life, and the lines on his body are computer tracking of his joints.
+00:00:04,340 --> 00:00:08,735
+Professional coaches judge a sprint stride at five key positions.
 
 3
-00:00:16,583 --> 00:00:21,339
-His flying sprint speed was nineteen to almost twenty miles an hour.
+00:00:08,735 --> 00:00:19,081
+We measured every one of them and compared him with world-class one-hundred-metre finalists and with college sprinters filmed the same way we filmed him.
 
 4
-00:00:21,339 --> 00:00:31,410
-His goal is twenty-one feet nine inches, and by his own speed equation that needs about nineteen point six miles an hour in the approach itself.
+00:00:19,983 --> 00:00:21,871
+Here are the five positions.
 
 5
-00:00:31,410 --> 00:00:38,194
-His approach runs averaged about eighteen point seven, so he needs roughly one more mile an hour.
+00:00:21,871 --> 00:00:24,972
+Toe-off, when the back foot leaves the ground.
 
 6
-00:00:39,083 --> 00:00:43,504
-Now watch his right leg, in red, while the foot is on the ground.
+00:00:24,972 --> 00:00:25,916
+Top of flight.
 
 7
-00:00:43,504 --> 00:00:50,849
-His ground contact time is about a tenth of a second, and the knee bends only a few degrees after touchdown.
+00:00:25,916 --> 00:00:27,804
+Strike, just before landing.
 
 8
-00:00:50,849 --> 00:00:54,454
-That short, stiff contact is what elite sprinters do.
+00:00:27,804 --> 00:00:28,478
+Touchdown.
 
 9
-00:00:54,454 --> 00:00:54,998
-Keep it.
+00:00:28,478 --> 00:00:32,186
+And full support, when his body is right over the foot.
 
 10
-00:00:55,850 --> 00:01:01,073
-His step rate, about four and a half steps per second, is close to elite sprinters.
+00:00:33,083 --> 00:00:35,342
+The biggest difference is at touchdown.
 
 11
-00:01:01,073 --> 00:01:07,933
-His step length is what's short: about two leg lengths per step, where elite men are close to two and a half.
+00:00:35,342 --> 00:00:38,123
+Watch his right leg, in red, the one in the air.
 
 12
-00:01:07,933 --> 00:01:17,183
-A longer step comes from more force into the ground, so that's a job for the weight room, Romanian deadlifts and broad jumps, not a change in form.
+00:00:38,123 --> 00:00:44,610
+When his left foot lands, his right knee is still well behind his left knee, and the heel is back near his butt.
 
 13
-00:01:18,083 --> 00:01:23,821
-Here's the main thing to change: touchdown distance, how far in front of his hips the foot lands.
+00:00:44,610 --> 00:00:48,781
+Now the white figure: that's the world-class average, drawn to his size.
 
 14
-00:01:23,821 --> 00:01:31,452
-Frame by frame into touchdown, the foot lands about fifteen inches ahead of his hips, still moving forward, which causes braking.
+00:00:48,781 --> 00:00:54,921
+Their swing knee has already come through, level with the other knee, with the heel tucked under the hips.
 
 15
-00:01:31,452 --> 00:01:36,243
-Faster sprinters land closer under the body, with the foot already sweeping back.
+00:00:54,921 --> 00:00:56,890
+Coaches call that the figure four.
 
 16
-00:01:36,243 --> 00:01:38,964
-Cue: step down and back, land under your hips.
+00:00:56,890 --> 00:01:00,539
+His thighs are thirty-four degrees apart; theirs are about ten.
 
 17
-00:01:38,964 --> 00:01:45,411
-Drills: A-skips into straight-leg bounds, and wicket runs, with mini-hurdles about six and a half feet apart.
+00:01:01,417 --> 00:01:01,676
+Why?
 
 18
-00:01:46,283 --> 00:01:56,250
-In the approach-run simulations, his step length stays the same, but his flight time, the time in the air each step, is about twenty milliseconds longer.
+00:01:01,676 --> 00:01:03,035
+It starts at toe-off.
 
 19
-00:01:56,250 --> 00:02:01,135
-So his step rate drops from four and a half to about four steps per second.
+00:01:03,035 --> 00:01:10,736
+He pushes until his leg is completely straight, knee at about a hundred and seventy degrees and the hip far behind him.
 
 20
-00:02:01,135 --> 00:02:04,327
-Try keeping the same quick rhythm and just relax.
+00:01:10,736 --> 00:01:18,049
+World-class sprinters leave the ground earlier, with the knee still bent, about a hundred and fifty-four degrees.
 
 21
-00:02:04,327 --> 00:02:08,235
-We only have a few steps of this, so it's something to test.
+00:01:18,049 --> 00:01:22,579
+Pushing all the way back costs time and leaves the leg further behind.
 
 22
-00:02:09,150 --> 00:02:13,866
-His arms stay in time with his legs, but the arm swing is lopsided.
+00:01:23,483 --> 00:01:27,005
+Then, in the air, the thigh comes forward too slowly.
 
 23
-00:02:13,866 --> 00:02:18,793
-It goes well behind him, but in front the hand only reaches mid-chest.
+00:01:27,005 --> 00:01:28,467
+Watch the yellow line.
 
 24
-00:02:18,793 --> 00:02:23,860
-Research says the arms mainly balance the legs, so this is low priority.
+00:01:28,467 --> 00:01:36,907
+From toe-off to the next touchdown his thigh swings about thirty-four degrees; a world-class sprinter's swings about forty-two.
 
 25
-00:02:23,860 --> 00:02:29,139
-One thing to test: hip to lip, hands from the hip pocket up to chin height.
+00:01:36,907 --> 00:01:40,827
+Start further back, move slower, and the knee arrives late.
 
 26
-00:02:30,050 --> 00:02:34,196
-His right and left legs look the same, including his takeoff leg.
+00:01:41,717 --> 00:01:43,530
+Two more numbers go with this.
 
 27
-00:02:34,196 --> 00:02:42,743
-Next session we'll film again, add jumps into the pit, and check touchdown distance, step length, and approach speed against the goal.
+00:01:43,530 --> 00:01:49,877
+Knee lift, how high the thigh comes up, is sixty-seven degrees; fast college sprinters reach seventy-six.
+
+28
+00:01:49,877 --> 00:01:56,646
+And his thighs scissor at about four hundred and fifty degrees per second, where they reach almost five hundred.
+
+29
+00:01:56,646 --> 00:02:03,658
+That speed is what predicts top speed among trained sprinters, and it takes strong, fast hip flexors and hamstrings.
+
+30
+00:02:03,658 --> 00:02:07,829
+So strength matters, but to hit these positions, not instead of them.
+
+31
+00:02:08,717 --> 00:02:12,684
+What's already at a professional level is the landing itself.
+
+32
+00:02:12,684 --> 00:02:23,350
+His shin, his knee, and where the foot lands under his body all match the world-class numbers, and his ground contact is short and stiff, about a tenth of a second.
+
+33
+00:02:23,350 --> 00:02:27,577
+The first video was wrong to call touchdown distance the problem.
+
+34
+00:02:27,577 --> 00:02:28,813
+It's the other leg.
+
+35
+00:02:29,717 --> 00:02:31,591
+His arms show the same thing.
+
+36
+00:02:31,591 --> 00:02:36,696
+They swing a long way behind him, but in front the hand only reaches mid-chest.
+
+37
+00:02:36,696 --> 00:02:40,767
+Let the hands come up to chin height as the knees come through.
+
+38
+00:02:41,683 --> 00:02:48,279
+For the goal: twenty-one feet nine needs about nineteen point six miles an hour in the approach.
+
+39
+00:02:48,279 --> 00:02:58,515
+His approach runs averaged eighteen point seven, so he needs about one more mile an hour, and a faster swing leg is part of how the step gets longer.
+
+40
+00:02:59,417 --> 00:03:00,008
+The plan.
+
+41
+00:03:00,008 --> 00:03:07,626
+One: recover the leg earlier, with dribbles, A-skips checking the figure four, wall-drill switches, and wicket runs.
+
+42
+00:03:07,626 --> 00:03:10,909
+Two: leave the ground sooner; push down, not back.
+
+43
+00:03:10,909 --> 00:03:17,805
+Three: strength for the positions: knee drives, hanging knee raises, Nordic curls and Romanian deadlifts.
+
+44
+00:03:17,805 --> 00:03:22,862
+Next session we'll measure the same positions again, plus jumps into the pit.

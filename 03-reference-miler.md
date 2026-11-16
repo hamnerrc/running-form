@@ -23,6 +23,48 @@ These can pull in opposite directions (see "speed vs economy" below), so we meas
 - **Speed vs economy:** in the 2017 World Champs final, the best finishers had **longer contacts, more overstriding, and lower stiffness**, plus higher horizontal forces. The authors suggest elite milers may favor a **speed-oriented technique over pure economy**. Runners went faster by raising cadence, not step length. [Hanley et al. 2023](https://eprints.glos.ac.uk/12365/)
 - Over a 1500 m time trial, collegiate runners' turnover and step length dropped after 300 m, and contact times were longest at 1100 m. Fatigue shows up in form. [ISBS 2005](https://ojs.ub.uni-konstanz.de/cpa/article/view/1040/953)
 
+## Key positions: what professional middle-distance analysis looks at
+
+Professional analysis of distance runners uses the same key positions as sprinting (touchdown, full support,
+toe-off, swing), with a different priority: economy at race pace, and sprint mechanics for the kick.
+
+**World 1500 m final (Hanley et al. 2023, 2017 World Championships men's final, laps at 7.0–7.5 m/s; 3-D).**
+[eprints.glos.ac.uk/12365](https://eprints.glos.ac.uk/12365/)
+
+| position | measure | value (mean) | linked to a better finishing place? |
+|---|---|---|---|
+| touchdown | knee angle (included) | 154° | more knee flex then extension through stance: yes |
+| | hip angle (trunk–thigh) | 152° (thigh + trunk lean ≈ 28°) | more hip flexion at contact: yes |
+| | foot ahead of CM (foot centre) | 0.35 m | longer: yes (speed over economy) |
+| | overstride: ankle ahead of the knee | 0.043 m | longer: yes |
+| contact | ground contact / flight time | 0.147 / 0.153 s | — |
+| | duty factor (per stride) | 0.245 | — |
+| | CM vertical drop during contact | 4.3 cm | — |
+| toe-off | hip extension during push-off | 42° from mid-stance | more: yes |
+| arms at touchdown | shoulder / elbow angle | −47° (arm behind) / 72° | more open elbow with speed |
+| stride | step length / rate | 2.16 m / 3.34 per s | faster by raising step rate |
+
+**Elite vs non-elite distance runners (what separates them).**
+- **Shin closer to vertical at touchdown** (high-performance runners 4.4° closer to vertical, Preece 2019) and a
+  **more upright trunk** that doesn't lean further forward as speed rises (Preece; Folland 2017: a more upright trunk
+  went with better performance). [Preece 2019](https://salford-repository.worktribe.com/output/1375358)
+- High-performance runners have **longer flight times** (+11%) with a higher vertical take-off speed, i.e. they keep
+  step length with a longer flight rather than by reaching with the foot (Preece 2019). This sits against Folland's
+  "less vertical oscillation is more economical", so vertical oscillation on its own is a weak target.
+- **Swing leg:** high-performance runners fold the knee more in swing (tighter heel recovery), with no difference in
+  knee angle at touchdown ([running styles synthesis, Sports Biomech 2021](https://www.tandfonline.com/doi/full/10.1080/14763141.2021.1873411)).
+- **Sprinters vs distance runners at the same speed** (Bushnell & Hunter 2007, 5.81 m/s and max speed): they differ
+  in minimum hip angle, **knee extension at toe-off** (distance runners push to a straighter knee), and **recovery
+  knee position at touchdown** (distance runners' swing knee further back). The distance runners kept that pattern
+  when sprinting, and the authors suggest technique work for the end of races.
+  [Sports Biomech 6(3)](https://sponet.de/sponet/Record/4013216)
+
+**What this means for the comparison.** There is no published swing-leg-at-touchdown value for elite milers at mile
+pace, so the swing-leg numbers at mile pace are compared with his own kick and with the general distance-runner
+pattern above, not graded. In the **kick** (7.6 m/s) the sprint references apply (Clark 2025's team-sport group at
+8.2 m/s is the closest published group: swing thigh at touchdown −10 ± 8°, swing knee 66 ± 6°, knee lift 65 ± 5°,
+thigh angular velocity 409 ± 22 °/s).
+
 ## What we'll measure for Athlete B
 
 | Metric | From video | Direction usually linked to better results |
@@ -37,6 +79,7 @@ These can pull in opposite directions (see "speed vs economy" below), so we meas
 | Trunk lean | Shoulder–hip line | Slight forward lean |
 | Leg and vertical stiffness (per kg) | Contact/flight times (spring-mass model) | Higher for economy; context-dependent for speed |
 | Left vs right asymmetry | All of the above | Small |
+| Key positions (touchdown, full support, toe-off, swing) | `positions.py` | see the table above; kick vs sprint references |
 | *(optional)* Kick pass vs mile pass | Same metrics | How he finds extra speed: cadence or step length |
 | *(optional)* Tired pass vs fresh pass | Same metrics | How much form drops off |
 

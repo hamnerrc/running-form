@@ -5,15 +5,19 @@
   "names": {
    "Athlete A": "RC",
    "Athlete B": "Vinni",
-   "`metrics_A.csv` and `report_A_data.md`": "the per-step data files (metrics_A.csv, report_A_data.md)",
-   "__title": "RC — baseline sprint analysis",
-   "__footer": "RC · baseline sprint analysis · 2026-11-15"
+   "__title": "RC — sprint analysis vs the professional model",
+   "__footer": "RC · sprint analysis vs professionals · 2026-11-15"
   },
   "figures": {
-   "Metrics (near-side leg, mean ± SD across steps)": [
+   "Key positions vs professionals (flying sprints; approach runs in brackets)": [
     [
-     "results/2026-11-15/figures/pdf/rc_steps.png",
-     "Every step of the four runs. Filled = near-side leg (high confidence), hollow = far side. The right leg is on the near side on → runs, the left leg on ← runs.",
+     "results/2026-11-15/figures/pdf/rc_model.jpg",
+     "White = the world-class 100 m average (published mean angles, Bissas 2022 / Clark 2025), drawn with RC's own segment lengths and anchored at his stance foot. Left: touchdown, left foot landing; his right (red) swing knee is behind and the shin points back, while the white swing knee is through and the heel tucked under (figure 4). Middle: toe-off; his push-off leg is straight, the white one still bent. Right: touchdown on the ← run, left leg swinging.",
+     1.0
+    ],
+    [
+     "results/2026-11-15/figures/pdf/rc_kinogram.jpg",
+     "The five key positions, flying sprint →. Top row: right foot lands (near). Bottom row: left foot lands, right (red) leg swinging. Thin line = vertical through the hips.",
      1.0
     ]
    ],
@@ -24,10 +28,10 @@
      1.0
     ]
    ],
-   "2. Reduce touchdown distance with an active foot strike (confidence: medium)": [
+   "Timing and stride (near-side leg, mean ± SD across steps)": [
     [
-     "results/2026-11-15/figures/pdf/rc_td_pair_c2.jpg",
-     "Touchdown, near-side leg: right foot (flying sprint →) and left foot (flying sprint ←). The foot lands well ahead of the hips; the shin is close to vertical.",
+     "results/2026-11-15/figures/pdf/rc_steps.png",
+     "Every step of the four runs. Filled = near-side leg (high confidence), hollow = far side.",
      1.0
     ]
    ]
@@ -39,20 +43,27 @@
   "names": {
    "Athlete A": "RC",
    "Athlete B": "Vinni",
-   "__title": "Vinni — baseline mile-pace analysis + backflip",
-   "__footer": "Vinni · baseline mile-pace analysis · 2026-11-15"
+   "__title": "Vinni — mile pace and kick vs the professional model, plus backflip",
+   "__footer": "Vinni · mile & kick vs professionals · 2026-11-15"
   },
   "figures": {
-   "Mile pace vs kick (near-side leg, mean ± SD across steps)": [
+   "Key positions vs professionals": [
     [
-     "results/2026-11-15/figures/pdf/v_steps.png",
-     "Every step of the four runs. Filled = near-side leg, hollow = far side. From mile pace to kick: shorter ground contact, higher step rate, lower vertical oscillation.",
+     "results/2026-11-15/figures/pdf/v_model.jpg",
+     "White = the world-class sprinter average (Bissas 2022 / Clark 2025), drawn with his segment lengths and anchored at his stance foot; it shows direction at mile pace and applies to the kick. Left: mile-pace touchdown, left foot landing; his right (red) swing leg trails far behind. Middle: mile-pace toe-off, push-off leg straight. Right: kick touchdown, the same pattern.",
      1.0
     ],
     [
-     "results/2026-11-15/figures/pdf/v_pair_c2.jpg",
-     "Mile pace, right foot: touchdown and toe-off.",
-     0.75
+     "results/2026-11-15/figures/pdf/v_kinogram.jpg",
+     "The key positions at mile pace (→ run). Top row: right foot lands. Bottom row: left foot lands, right (red) leg swinging. Thin line = vertical through the hips.",
+     1.0
+    ]
+   ],
+   "Timing and stride (near-side leg, mean ± SD across steps)": [
+    [
+     "results/2026-11-15/figures/pdf/v_steps.png",
+     "Every step of the four runs. Filled = near-side leg, hollow = far side.",
+     1.0
     ]
    ],
    "Backflip critique (extra)": [

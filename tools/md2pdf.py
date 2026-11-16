@@ -101,8 +101,11 @@ while i < len(lines):
             i += 1
         n = len(rows[0])
         data = [[Paragraph(inline(c), S["cellh"] if r == 0 else S["cell"]) for c in row] for r, row in enumerate(rows)]
-        first = 0.34 if n > 2 else 0.5
-        cw = [W * first] + [W * (1 - first) / (n - 1)] * (n - 1)
+        # column widths follow the text: average cell length per column, clamped so short columns stay readable
+        avg = [sum(len(re.sub(r"[*`]", "", row[k])) for row in rows[1:]) / max(1, len(rows) - 1) for k in range(n)]
+        hdr = [len(rows[0][k]) for k in range(n)]
+        wts = [min(40.0, max(11.0, a, h * 0.6)) for a, h in zip(avg, hdr)]
+        cw = [W * w / sum(wts) for w in wts]
         t = Table(data, colWidths=cw, repeatRows=1)
         t.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), ACCENT), ("VALIGN", (0, 0), (-1, -1), "TOP"),
                                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f5f7fa")]),

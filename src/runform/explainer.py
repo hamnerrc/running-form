@@ -263,7 +263,7 @@ def ov_contact(img, v, f, tf, ov, ctx, texts):
         return
     ms = (min(max(f, td), to) - td) / CAPTURE_FPS * 1000
     lab = ov.get("label", "foot on the ground")
-    texts.append((30, img.shape[0] - 140, f"{lab}: {ms:.0f} ms" + ("  (pushed off)" if f >= to else ""),
+    texts.append((30, img.shape[0] - 165, f"{lab}: {ms:.0f} ms" + ("  (pushed off)" if f >= to else ""),
                   {"size": 36, "bg": True, "col": (255, 255, 255) if f < to else (120, 255, 150)}))
 
 
@@ -273,7 +273,7 @@ def ov_flight(img, v, f, tf, ov, ctx, texts):
         return
     ms = (min(f, td) - to) / CAPTURE_FPS * 1000
     done = f >= td
-    texts.append((30, img.shape[0] - 140, f"{ov.get('label', 'in the air')}: {ms:.0f} ms" + ("  (landed)" if done else ""),
+    texts.append((30, img.shape[0] - 165, f"{ov.get('label', 'in the air')}: {ms:.0f} ms" + ("  (landed)" if done else ""),
                   {"size": 36, "bg": True, "col": (120, 255, 150) if done else (255, 255, 255)}))
 
 
@@ -381,7 +381,7 @@ def ov_flip(img, v, f, tf, ov, ctx, texts):
         dashed(img, c, (c[0], c[1] - 175), (255, 255, 255), 2)
         texts.append((c[0], c[1] - 190, f"turned {rot:.0f}° of 360°", {"size": 32, "bg": True, "anchor": "mb",
                                                                     "col": (150, 255, 170)}))
-    texts.append((30, img.shape[0] - 140, f"upper body: {abs(ang):.0f}° {'back' if ang < 0 else 'forward'} from upright",
+    texts.append((30, img.shape[0] - 165, f"upper body: {abs(ang):.0f}° {'back' if ang < 0 else 'forward'} from upright",
                   {"size": 34, "bg": True}))
 
 
@@ -409,7 +409,112 @@ def ov_label(img, v, f, tf, ov, ctx, texts):
     texts.append((ov.get("x", 30), ov.get("y", 24), ov["text"], {"size": ov.get("size", 34), "bg": True, "bold": True}))
 
 
-OVERLAYS = {"knee": ov_knee, "contact": ov_contact, "flight": ov_flight, "footprints": ov_footprints,
+def _sgn(tr: Track) -> int:
+    hu = pd_interp(((tr.uv[:, 23] + tr.uv[:, 24]) / 2)[:, 0])
+    return 1 if hu[-1] > hu[0] else -1
+
+
+def _seg_px(tr: Track) -> dict:
+    if not hasattr(tr, "_segpx"):
+        L = lambda a, b: float(np.nanmedian(np.linalg.norm(tr.uv[:, a] - tr.uv[:, b], axis=-1)))
+        hipm = (tr.uv[:, 23] + tr.uv[:, 24]) / 2; shm = (tr.uv[:, 11] + tr.uv[:, 12]) / 2
+        tr._segpx = {"thigh": (L(23, 25) + L(24, 26)) / 2, "shank": (L(25, 27) + L(26, 28)) / 2,
+                     "trunk": float(np.nanmedian(np.linalg.norm(shm - hipm, axis=-1)))}
+    return tr._segpx
+
+
+def ov_model(img, v, f, tf, ov, ctx, texts):
+    """Published world-class pose (positions.MODEL_TD / MODEL_TO) in white, sized to the athlete, anchored at the
+    stance ankle. Shown in `frames` [a, b] (default: only at `frame`)."""
+    from . import positions
+    fr = ov.get("frames") or [ov["frame"], ov["frame"]]
+    if not (fr[0] <= f <= fr[1]):
+        return
+    if ov.get("segs") is not None and ctx["seg"] not in ov["segs"]:
+        return
+    model = positions.MODEL_TD if ov.get("pos", "td") == "td" else positions.MODEL_TO
+    ank = v.track.p(f, f"ankle_{ov['stance']}")
+    if ank is None or not np.isfinite(ank).all():
+        return
+    m = positions.model_pose(model, ank, _seg_px(v.track), _sgn(v.track))
+    segs = [("ankle_s", "knee_s"), ("knee_s", "hip"), ("hip", "shoulder"), ("hip", "knee_o")]
+    if "ankle_o" in m:
+        segs.append(("knee_o", "ankle_o"))
+    ovl = img.copy()
+    for a, b in segs:
+        cv2.line(ovl, _pt(tf(m[a])), _pt(tf(m[b])), (20, 20, 20), 15, cv2.LINE_AA)
+        cv2.line(ovl, _pt(tf(m[a])), _pt(tf(m[b])), (255, 255, 255), 10, cv2.LINE_AA)
+    for k in m:
+        cv2.circle(ovl, _pt(tf(m[k])), 9, (255, 255, 255), -1, cv2.LINE_AA)
+    cv2.addWeighted(ovl, 0.8, img, 0.2, 0, dst=img)
+    lab = ov.get("label", "white = world-class average")
+    p = tf(m["shoulder"])
+    texts.append((p[0], p[1] - 30, lab, {"size": 30, "bg": True, "anchor": "mb"}))
+
+
+def ov_kneegap(img, v, f, tf, ov, ctx, texts):
+    """Horizontal gap between the swing knee and the stance knee (figure-4 check)."""
+    fr = ov.get("frames") or [ov["frame"], ov["frame"]]
+    if not (fr[0] <= f <= fr[1]):
+        return
+    sw, st = ov["swing"], ov["stance"]
+    a, b = v.track.p(f, f"knee_{sw}"), v.track.p(f, f"knee_{st}")
+    if a is None or b is None:
+        return
+    A, B = tf(a), tf(b)
+    y = max(A[1], B[1]) + 70
+    for P_ in (A, B):
+        dashed(img, P_, (P_[0], y + 12), (255, 255, 255), 3)
+    cv2.arrowedLine(img, _pt((B[0], y)), _pt((A[0], y)), YELLOW, 5, cv2.LINE_AA, tipLength=0.15)
+    texts.append(((A[0] + B[0]) / 2, y + 16, ov["label"], {"size": 30, "bg": True, "anchor": "mt", "col": (255, 220, 0)}))
+
+
+def ov_joint(img, v, f, tf, ov, ctx, texts):
+    """Included angle at a knee or hip with a label, e.g. push-off knee at toe-off."""
+    fr = ov.get("frames") or [ov["frame"], ov["frame"]]
+    if not (fr[0] <= f <= fr[1]):
+        return
+    s, jn = ov["side"], ov.get("joint", "knee")
+    j = v.track.i(f)
+    if j is None:
+        return
+    idx = {"knee": (23, 25, 27), "hip": (11, 23, 25)} if s == "L" else {"knee": (24, 26, 28), "hip": (12, 24, 26)}
+    a, b, c = (v.track.uv[j, k] for k in idx[jn])
+    if not all(np.isfinite(x).all() for x in (a, b, c)):
+        return
+    A, B, C = tf(a), tf(b), tf(c)
+    for P_ in (A, C):
+        cv2.line(img, _pt(B), _pt(P_), YELLOW, 6, cv2.LINE_AA)
+    ang = math.degrees(math.acos(np.clip(np.dot(np.subtract(A, B), np.subtract(C, B)) /
+                                         (math.dist(A, B) * math.dist(C, B)), -1, 1)))
+    lab = ov.get("label", "{a:.0f}°").format(a=ang)
+    dx = ov.get("dx", 40)
+    texts.append((B[0] + dx, B[1] + ov.get("dy", 0), lab, {"size": 30, "bg": True, "anchor": "lm" if dx > 0 else "rm",
+                                                       "col": (255, 220, 0)}))
+
+
+def ov_thigh(img, v, f, tf, ov, ctx, texts):
+    """Live thigh angle vs vertical (+ = knee in front of the hip) with a vertical reference through the hip."""
+    if not _in(f, ov):
+        return
+    s = ov["side"]
+    j = v.track.i(f)
+    if j is None or v.track.masked(f, s):
+        return
+    h, k = v.track.uv[j, 23 if s == "L" else 24], v.track.uv[j, 25 if s == "L" else 26]
+    if not (np.isfinite(h).all() and np.isfinite(k).all()):
+        return
+    H, K = tf(h), tf(k)
+    L = math.dist(H, K)
+    dashed(img, H, (H[0], H[1] + L * 1.1), (255, 255, 255), 2)
+    cv2.line(img, _pt(H), _pt((H[0] + (K[0] - H[0]) * 1.1, H[1] + (K[1] - H[1]) * 1.1)), YELLOW, 6, cv2.LINE_AA)
+    a = math.degrees(math.atan2(_sgn(v.track) * (k[0] - h[0]), k[1] - h[1]))
+    word = "in front" if a >= 0 else "behind"
+    texts.append((30, img.shape[0] - 165, f"{ov.get('label', 'thigh')}: {abs(a):.0f}° {word}",
+                  {"size": 36, "bg": True, "col": (255, 220, 0)}))
+
+
+OVERLAYS = {"thigh": ov_thigh, "model": ov_model, "kneegap": ov_kneegap, "joint": ov_joint, "knee": ov_knee, "contact": ov_contact, "flight": ov_flight, "footprints": ov_footprints,
             "hip_foot": ov_hip_foot, "shin": ov_shin, "com": ov_com, "flip": ov_flip, "legend": ov_legend,
             "label": ov_label, "arm": ov_arm}
 
@@ -553,7 +658,7 @@ def build(spec_path: Path):
                                   {"size": c.get("size", 40), "bold": True, "bg": True, "anchor": "ra", "box": 760,
                                    "pad": 18, "bgcol": (0, 0, 0, 195)}))
             if sh.get("caption"):
-                texts.append((OUT_W // 2, OUT_H - 26, sh["caption"], {"size": 28, "bg": True, "anchor": "md",
+                texts.append((OUT_W // 2, OUT_H - 26, sh["caption"], {"size": 28, "bg": True, "anchor": "md", "box": OUT_W - 120,
                                                                      "col": (225, 225, 225), "bgcol": (0, 0, 0, 200)}))
             canvas = draw_texts(canvas, texts)
             wr.send(np.ascontiguousarray(canvas[:, :, ::-1]))
@@ -577,7 +682,7 @@ def build(spec_path: Path):
     sf.write(wav, np.concatenate(audio_parts), sr)
     out_mp4 = spec_path.parent / f"video_{name}.mp4"
     ff = imageio_ffmpeg.get_ffmpeg_exe()
-    subprocess.run([ff, "-y", "-loglevel", "error", "-i", str(silent_mp4), "-i", str(wav), "-c:v", "libx264", "-crf", "22", "-preset", "medium", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+    subprocess.run([ff, "-y", "-loglevel", "error", "-i", str(silent_mp4), "-i", str(wav), "-c:v", "libx264", "-crf", "25", "-preset", "medium", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                     "-c:a", "aac", "-b:a", "160k", "-shortest", str(out_mp4)], check=True)
     fmt = lambda s: f"{int(s // 3600):02d}:{int(s % 3600 // 60):02d}:{int(s % 60):02d},{int(round(s % 1 * 1000)) % 1000:03d}"
     (spec_path.parent / f"video_{name}.srt").write_text(

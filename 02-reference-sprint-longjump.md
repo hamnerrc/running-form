@@ -25,11 +25,67 @@ Lewis is the classic sprinter-style ("elastic") long jumper. Old broadcast foota
 - The authors' reading: Lewis started converting horizontal into vertical velocity earlier, **spreading it across two strides**, essentially sprint technique adapted to jumping. Powell used a more force-based, single big takeoff. [Ariel Dynamics](https://www.arielnet.com/articles/show/adi-pub-01140/long-jump-technique-power-or-speed)
 - Plant leg at touchdown: both jumpers used a leg angle just over 60°, and faster runs went with a straighter knee at touchdown. [ISBS](https://ojs.ub.uni-konstanz.de/cpa/article/view/777/700)
 
-## Elite max-velocity norms (what Athlete A gets compared against)
-- **Contact time** typically 0.08–0.10 s, shorter in faster sprinters. Elite men: contact 0.090 s, flight 0.124 s, **step length ≈ 2.39 × leg length**, step rate ≈ 4.7 /s. [PMC8580521](https://pmc.ncbi.nlm.nih.gov/articles/PMC8580521)
-- Elite sprinters keep the **foot landing close under the body**, limit **knee bend during contact**, and **leave the ground before the hip and knee fully straighten**. [Sides](https://katalog.lib.cas.cz/KNAV/EdsRecord/edsair,edsair.core.ac.uk....405d6cd93ccc3c06b91196fb18b99332)
-- Shorter contacts go with strong hip extension, a fast **backward sweep of the foot before touchdown**, and little knee flexion and extension during contact. [J Hum Kinet](https://jhk.termedia.pl/Kinematic-Stride-Characteristics-of-Maximal-Sprint-Running-of-Elite-Sprinters-Verification,158511,0,2.html)
-- Thigh range of motion ≈ 100° in elite men (same PMC study).
+## Key positions at top speed: the professional model (what Athlete A gets compared against)
+
+Professional sprint analysis (the ALTIS kinogram method used by elite coaches, McMillan & Pfaff 2018; Mann's
+front-side model; Seagrave 2009) judges a stride at five **key positions**: **toe-off**, **top of flight**
+(ALTIS: "MVP", maximal vertical projection), **strike** (just before touchdown), **touchdown** and **full support**
+(CM over the foot). The two measured datasets below give numbers for each position. They are what every metric
+in `positions_A.md` is compared with.
+
+- **Bissas et al. 2022**: the 2017 World Championships men's 100 m finalists (~11.6 m/s, 3-D, hand digitised).
+  [eprints.glos.ac.uk/10241](https://eprints.glos.ac.uk/10241/)
+- **Clark et al. 2025**: 98 US intercollegiate men filmed exactly like us (240 fps iPhone, 10 m away, 1 m high):
+  track & field sprinters/jumpers at 10.0 and 9.3 m/s, and team-sport athletes at 8.2–9.3 m/s (RC's speed range).
+  [Front. Sports Act. Living 7:1535798](https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2025.1535798/full)
+
+| position | measure | world-class 100 m (Bissas) | track 10.0 m/s / team sport 8.2–9.3 m/s (Clark) |
+|---|---|---|---|
+| **touchdown** | **thigh separation** (swing thigh − stance thigh; − = swing knee behind) | **−10 ± 11°** (range −27 to −2) | — |
+| | **swing thigh** vs vertical (+ = knee in front of the hip) | ≈ +17° (27.4 − 9.9) | **+15 ± 14°** / −9 ± 8° |
+| | swing knee angle (included; small = heel folded tight) | — | 49 ± 7° / 65 ± 7° |
+| | stance thigh / knee / hip angle | 27 ± 5° / 156 ± 6° / 140 ± 5° | — |
+| | shin angle (+ = ankle ahead of knee) | 9 ± 4° | — |
+| | trunk lean (forward) | 14.5 ± 3° | — |
+| | leg angle (CM → foot vs vertical) | — | 12.7 ± 2.4° / 17.0 ± 1.9° |
+| | touchdown distance (toe tip ahead of CM) | 0.38 ± 0.04 m | — |
+| | foot speed over the ground (+ = still moving forward) | +2.4 ± 0.5 m/s (3.3 just before) | — |
+| **toe-off** | trailing thigh (− = behind) | −25 ± 3° | — |
+| | thigh separation | 93 ± 7° | — |
+| | push-off knee / hip angle | **154 ± 4° / 196 ± 3°** (leave **before** the leg is straight) | — |
+| | trunk lean | 9 ± 3° | — |
+| **swing (whole stride)** | knee lift: max thigh angle in front | — | **76 ± 6°** / 64 ± 5° |
+| | max thigh angle behind | — | −28 ± 7° / −35 ± 5° |
+| | thigh range of motion | — | 105 ± 7° / 99 ± 6° |
+| | front-side share (front ÷ total thigh motion) | — | 73% / 65% |
+| | average thigh angular velocity | — | **483 ± 29 °/s** / 409–445 °/s |
+| | peak thigh angular acceleration | — | 11.0 ± 0.9 / 8.4–9.9 k°/s² |
+| **contact** | leg excursion (angle the CM → foot line sweeps) | — | 56 ± 4° / 61 ± 4° |
+| | ground contact / flight time | 0.093 / 0.116 s | — |
+| | step length / rate | 2.42 m / 4.80 per s | — |
+
+**What the professionals' positions mean in plain words**
+- **Touchdown, the "figure 4":** when the foot lands, the swing knee has already come through to about level with
+  the stance knee ("knees together", Seagrave/Mann), with the swing heel folded high under the hips and the foot
+  near the stance knee. From the side the two legs look like a "4". Behind this is fast **recovery**: the thigh is
+  pulled forward right after toe-off ("toe up, knee up, heel forward", "step over the opposite knee").
+- **Toe-off before full extension:** world-class sprinters leave the ground with the knee still bent ~26° and the
+  hip only ~16° past straight. A leg pushed to full extension behind the body has further to travel back, so it
+  arrives late at the next touchdown. This is the opposite of "push longer".
+- **Front-side mechanics:** most of the thigh's motion happens in front of the body (big knee lift, little trailing
+  behind). Faster groups are more front-side than slower groups (Clark 2025; Mann). Inside one homogeneous group
+  of trained sprinters the positions alone don't predict speed (Haugen 2018; Clark 2025), but **thigh angular
+  velocity and acceleration do**: how fast the thighs scissor, which needs hip flexor and hip extensor strength.
+- **Correction to the baseline:** professionals' feet are also still moving forward over the ground at touchdown
+  (+2.4 m/s) and land ~0.38 m (toe tip) ahead of the CM. The "backward sweep" coaches teach is relative to the hip,
+  not the ground. Touchdown distance by itself is therefore not a fault when compared on the same definition.
+- Team-sport athletes at the same speed use a "less front-side, more ground-based" pattern (swing thigh behind at
+  touchdown, more extended swing knee, more thigh extension behind). Clark 2025 sees that as a style difference at
+  team-sport level; for a sprinter or long jumper the track pattern is the model.
+
+**Other elite max-velocity values:** contact 0.08–0.10 s, step length ≈ 2.39 × leg length, step rate ≈ 4.7 /s,
+thigh range of motion ≈ 100° ([PMC8580521](https://pmc.ncbi.nlm.nih.gov/articles/PMC8580521)); little knee bend
+during contact ([J Hum Kinet](https://jhk.termedia.pl/Kinematic-Stride-Characteristics-of-Maximal-Sprint-Running-of-Elite-Sprinters-Verification,158511,0,2.html)).
 
 ## Arm action (what the arms do, and what the research says)
 - **Role:** the arms mainly balance the legs' rotation (they cancel the trunk twist the legs create) and add a little lift; they are not a main source of forward speed. The 2018 review of arm mechanics in sprinting calls the evidence "ambiguous and under-investigated" compared with the legs. [Macadam et al. 2018, Strength Cond J 40(5)](https://ro.ecu.edu.au/ecuworkspost2013/6770)
@@ -51,10 +107,16 @@ Lewis is the classic sprinter-style ("elastic") long jumper. Old broadcast foota
 | Horizontal velocity loss during takeoff | ≈ 1–1.5 m/s (Lewis −1.4) | Tokyo 1991 |
 | Toe-to-board distance | as small as possible without fouling; every cm behind the board is lost from the official distance | — |
 
+**Free (swing) leg at the takeoff:** the same recovery matters on the board. The free leg is driven forward and up
+through the takeoff contact; one elite case study measured the free thigh at **≈ 790 °/s** at toe-off and called its
+speed "a very important factor" for takeoff efficiency ([ISBS](https://ojs.ub.uni-konstanz.de/cpa/article/view/4748/4389)).
+A free leg that is still trailing behind at board touchdown has to be swung through in ~0.12 s. The pit analysis
+reports free-thigh angle at board touchdown and toe-off, plus the same key positions on the last approach steps.
+
 The camera at the pit sees roughly the last 7 m, so our approach speed is measured over the last two steps, a little later than the professionals' 11–6 m window, where speed is usually slightly lower.
 
 ## What this means for Athlete A
 1. **Lewis is the right model for his style, but only with Lewis's speed.** At 11 m/s Lewis could take off at a flat 20°. At about 8.4–8.8 m/s Athlete A probably needs a somewhat higher angle; one analysis estimates **~0.3 m per extra degree**. [NBC / Lees](https://www.nbcnews.com/id/wbna48246625). That's for the approach session.
-2. **Sprint markers ranked in the baseline:** contact time as a share of each step (elastic quality, plus a stiffness estimate) · foot landing distance ahead of the hips · backward foot sweep at touchdown · toe-off before full leg extension · thigh range of motion · step length ÷ leg length (Lewis ~6'2" vs A's 5'9") · **right vs left asymmetry** (limited right dorsiflexion).
+2. **Sprint markers:** every key position in the table above (touchdown, toe-off, swing, contact), plus contact time, step length ÷ leg length (Lewis ~6'2" vs A's 5'9"), arm action and **right vs left asymmetry** (limited right dorsiflexion).
 3. **Pit session:** the longer penultimate step, CM lowering across the last two steps, and the ~60° touchdown (plant) angle (table above). With a right-foot takeoff, the lowering step is on the **left** leg (the shin-splint side), so its loading matters.
-4. **Prioritizing:** no cues that trade short contacts for "push longer". Anything that looks like a strength limit goes to the RDL / broad jump work instead.
+4. **Prioritizing:** no cues that trade short contacts for "push longer". Positions and strength go together: the swing-leg positions need fast, strong hip flexion and extension (thigh angular velocity), so each position gap gets both a drill and the strength work that makes the position possible.

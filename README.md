@@ -111,6 +111,12 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
       - Spring-mass vertical and leg stiffness per kg
       - Heel recovery (max knee flexion in swing), foot strike (foot angle at touchdown)
       - Arm action: shoulder range of motion, elbow angle front/back, hand height, hand behind hip, arm–leg timing
+    - **Key positions, every athlete and every run type** (`runform positions`, `positions.py`; references in 02/03; definitions in 04). Judge each stride at **toe-off, top of flight, strike, touchdown and full support**, like professional coaches (ALTIS kinogram), and measure the same variables as the published professional data:
+      - Touchdown: thigh separation and swing-knee position ("figure 4": knees together, heel under the hips), swing thigh and swing knee angle, stance thigh/knee/hip, shin, trunk, leg angle (CM → foot), touchdown distance (middle of foot and toe tip), overstride, foot speed
+      - Toe-off: push-off knee and hip angle, trailing and front thigh, thigh separation, trunk
+      - Full support: swing knee vs stance knee, swing heel height
+      - Swing: knee lift, max thigh behind, thigh range of motion, front-side share, thigh angular velocity and acceleration, recovery timing
+      - Outputs `positions_<athlete>.csv/.md`, `figures/kinogram_*.jpg` (the five positions) and `figures/model_td_*/model_to_*.jpg` (the published world-class pose drawn over the athlete)
     - **Approach-run simulations (A):** zone speed as % of the best flying sprint, and the distance his speed equation predicts vs the goal (`report.goal_table`).
     - **Takeoffs (A):** approach speed over the last two steps, last-three step lengths, contact times, CM lowering, takeoff contact time, touchdown (plant) angle, takeoff knee, trunk lean, free-leg knee drive, CM velocity at touchdown/toe-off, takeoff angle, horizontal velocity loss, toe-to-board distance, official vs effective distance, equation prediction (`takeoff.py`, references in 02).
     - **Strides vs flies (A):** how step length and step rate change with speed (his speed strategy).
@@ -118,7 +124,7 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
     - **Broad jump:** distance (takeoff toe → landing heel, via homography); CM takeoff speed and angle; countermovement depth.
     - **Knee-to-wall photos:** shin angle from vertical, each side.
     - **A-pose photos:** segment lengths via the floor-tape scale, as a cross-check against the tape measures.
-11. **Compare to references.** A: [02](02-reference-sprint-longjump.md) (Lewis data, elite max-velocity norms, step length ÷ leg length). B: [03](03-reference-miler.md) (Folland economy and performance variables, Hanley 1500 m). Cite the reference behind each comparison.
+11. **Compare to references.** A: [02](02-reference-sprint-longjump.md) (key-position model from the 2017 World Championships 100 m finalists and Clark 2025, Lewis data, step length ÷ leg length, takeoff values). B: [03](03-reference-miler.md) (2017 World Championships 1500 m final, Folland, Preece, Bushnell & Hunter; sprint model for the kick). Cite the reference behind each comparison. **Benchmark every key position, not only the obvious ones, and look at the frames side by side with the model before concluding anything.** Never conclude "form is fine, only strength": strength is what lets an athlete hit the positions, so tie strength work to the position gaps.
 12. **Report** → `results/<date>/`:
     - `report_A.md`, `report_B.md`: plain-language summary first, then the metrics table, comparisons, **1–3 ranked recommendations** (cue + 1–2 drills each), confidence levels, and the retest plan
     - `metrics_A.csv`, `metrics_B.csv`: one row per step (rep, side, all metrics, confidence)
@@ -134,10 +140,10 @@ Work in `src/` (Python). Make each stage a script that reads `data/<date>/` and 
 - Research links are correlational. Frame recommendations as "toward what faster athletes do", to be tested at the retest.
 - **Athlete A:**
   - Protect elasticity: no cues that trade short contacts for "pushing longer"
-  - Strength-limited issues go to his RDL / broad-jump training, not to form cues
+  - Pair each position gap with the drill that teaches it and the strength work that makes it possible (hip flexors, hamstrings, hip extensors)
   - Watch the right (takeoff, previously injured) foot strike and right vs left asymmetry
 - **Athlete B:**
-  - Change little; trained runners self-optimize
+  - Mile pace: change little (trained runners self-optimize); the kick gets sprint mechanics work
   - Economy at mile pace, speed at the kick; foot strike gets no cue unless it causes braking
   - Interpret everything as **fatigued** data
 - Pain-related observations: note them, recommend a professional if relevant, no medical advice.
@@ -184,5 +190,6 @@ cd src && ../.venv/bin/python -m runform.explainer ../results/2026-11-15/video/R
 - [x] Goal set: 21'9" (6.63 m) ≈ 19.6 mph approach speed by Athlete A's equation; reports corrected (2026-11-15)
 - [x] Arm action, heel recovery and foot strike added to the analysis and to the 2026-11-15 reports
 - [x] Next-session setup ready: plan + field card (01), templates (`data/_template/` session, calib with `pit` setup), takeoff analysis (`takeoff.py`), speed-vs-goal table, reference values (02), terms (04)
+- [x] Key-position analysis vs professionals (2026-11-16): `positions.py`, `positions_A/B`, kinograms and model overlays; reports, PDFs and both videos rebuilt around it; corrections listed in each report
 - [ ] Retest + takeoff session (≈ mid-December 2026): copy the templates, file the clips, run `runform all`, then write the reports
 - [ ] Ask other athletes whether they want analysis

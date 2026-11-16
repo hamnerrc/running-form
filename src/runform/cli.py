@@ -7,6 +7,7 @@
   .venv/bin/python -m runform pose        data/2026-11-15 [--athlete A] [--only fly1]
   .venv/bin/python -m runform tape        data/2026-11-15            # §5.4 (needs tape_colors in session.yaml)
   .venv/bin/python -m runform analyze     data/2026-11-15            # §5.5–5.12 data part → results/<date>/
+  .venv/bin/python -m runform positions   data/2026-11-15            # key positions vs elite (from analysis files)
   .venv/bin/python -m runform all         data/2026-11-15
   .venv/bin/python -m runform demo  <clip> --height 1.80 --direction ← [--treadmill 3.0] [--out DIR]
 
@@ -25,7 +26,7 @@ import yaml
 
 from . import analyze as an
 from . import calib as calib_mod
-from . import ingest, pose, report, tape
+from . import ingest, pose, positions, report, tape
 from .session import Rep, body_from_measurements, load_session
 from .video import iter_frames, read_frame
 
@@ -154,6 +155,19 @@ def cmd_analyze(args):
             p = report.write_athlete(sess.results, ath, results, notes, goal=sess.meta.get("athletes", {}).get(ath, {}),
                                      body=body)
             print(f"wrote {p}")
+            pp = positions.write_athlete(sess, ath, body)
+            if pp:
+                print(f"wrote {pp}")
+
+
+def cmd_positions(args):
+    """Key positions (touchdown, toe-off, full support, swing) from existing analysis files: no re-tracking."""
+    sess = load_session(args.session)
+    athletes = [args.athlete] if args.athlete else sorted({r.athlete for r in sess.reps if r.athlete != "both"})
+    for ath in athletes:
+        m = sess.measurements(ath)
+        pp = positions.write_athlete(sess, ath, body_from_measurements(m) if m else None)
+        print(f"wrote {pp}" if pp else f"{ath}: no analysed runs")
 
 
 def _board_x(sess, clip_file: str) -> float | None:
@@ -194,7 +208,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(prog="runform", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name, fn in (("ingest", cmd_ingest), ("calib-sheet", cmd_calib_sheet), ("calib-click", cmd_calib_click),
-                     ("calib", cmd_calib), ("pose", cmd_pose), ("tape", cmd_tape), ("analyze", cmd_analyze), ("all", cmd_all)):
+                     ("calib", cmd_calib), ("pose", cmd_pose), ("tape", cmd_tape), ("analyze", cmd_analyze), ("positions", cmd_positions), ("all", cmd_all)):
         p = sub.add_parser(name)
         p.add_argument("session")
         p.add_argument("--athlete"); p.add_argument("--only", help="comma-separated clip names (stems)")

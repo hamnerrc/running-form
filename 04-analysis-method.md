@@ -26,6 +26,29 @@
 - **Heel recovery** = maximum knee flexion during swing.
 - **Foot strike** from the foot angle at touchdown (heel → toe line vs ground): > +5° rearfoot, < −5° forefoot, otherwise midfoot. MediaPipe's heel and toe points are rough, so this is low confidence.
 - **Takeoff** (`takeoff.py`): the takeoff contact is the contact followed by the longest flight with the CM rising. Approach speed = CM horizontal displacement ÷ time over the last two steps before the takeoff touchdown. Step lengths from mid-contact foot positions. CM lowering = CM height at the touchdown two contacts before the takeoff minus CM height at the takeoff touchdown. Touchdown (plant) angle = angle between the ground and the CM → takeoff-ankle line, at touchdown. Takeoff velocity from the first 50 ms of flight (x: straight-line fit; y: straight-line fit of y + ½gt²), which is much less noisy than a derivative at toe-off. Takeoff angle = atan(v_y / v_x). Horizontal velocity loss = v_x at touchdown − v_x at toe-off. Toe-to-board distance = board front edge − toe position at touchdown (+ = behind the board). Effective distance = official distance + toe-to-board distance.
+- **Key positions** (`positions.py`, one row per touchdown, `positions_<athlete>.csv/.md`). Stance leg = the foot that
+  lands; swing leg = the other. Positions: touchdown and toe-off from the contact events; full support = the frame in
+  the contact where the CM is closest to directly above the middle of the foot; top of flight = highest CM between
+  toe-off and the next touchdown; strike = the frame before touchdown with the landing ankle furthest ahead of the hips.
+  - Thigh angle = hip → knee vs vertical (+ = knee in front of the hip). **Thigh separation** = swing thigh − stance
+    thigh (Bissas 2022: − = swing knee behind the stance knee). Knee separation = horizontal distance swing knee −
+    stance knee.
+  - Knee and hip angles are included angles, 180° = straight (hip = trunk–thigh angle = 180 − (thigh angle + trunk
+    lean)); > 180° at toe-off = thigh extended behind the trunk line.
+  - Leg angle at touchdown = CM → middle-of-foot line vs vertical (Clark 2025); leg excursion = that angle at
+    touchdown minus the same angle at toe-off.
+  - Overstride = ankle ahead of the stance knee at touchdown (Hanley 2023).
+  - Swing (per stride of each leg): knee lift = max thigh angle, max thigh angle behind, thigh range of motion,
+    front-side share = max in front ÷ range, average thigh angular velocity = range ÷ step time, peak thigh angular
+    acceleration = 2π² × range × stride frequency² (Clark 2025's sine-wave formula).
+  - Recovery: thigh angle and heel-behind-hips distance at the moment of maximum knee flexion in swing; time from
+    toe-off until the swing thigh passes vertical.
+  - Which touchdowns count: a value uses only touchdowns where the leg it depends on faced the camera (swing-leg values
+    → swing leg near; stance values → stance leg near); separation angles use both legs and every touchdown.
+    Tracking glitches (knee jump as the legs cross; legs swapped at toe-off, i.e. separation < 20°; leg excursion
+    outside 30–80°) are left blank, not guessed.
+  - Published model pose for overlays (`positions.MODEL_TD`, `MODEL_TO`): the published mean angles drawn with the
+    athlete's own segment lengths, anchored at the stance ankle. It shows the average position, not one athlete.
 - **Speed → distance (Athlete A's equation):** distance (ft) = 1.57 × approach speed (mph) − 8.87 + 0.18 × (height (in) − 70). Optimal-form ceiling; applies to approach speed, not flying-sprint speed.
 
 ## Terms
@@ -39,7 +62,19 @@ Use these standard sprint and jump terms in every report and video, and define t
 | flight time | time in the air between one foot leaving and the other landing |
 | step / stride | step = one foot's touchdown to the other foot's touchdown; stride = two steps (same foot to same foot) |
 | step length, step rate (cadence) | distance per step; steps per second (or per minute) |
-| touchdown distance | how far ahead of the hips (or CM) the foot lands |
+| touchdown distance | how far ahead of the CM the foot lands (we give the middle of the foot and the toe tip) |
+| key positions | toe-off, top of flight, strike, touchdown, full support: the five frames coaches judge a stride by |
+| top of flight (MVP) | the highest point between toe-off and the next touchdown (ALTIS: maximal vertical projection) |
+| strike | the moment just before touchdown when the landing leg is furthest forward |
+| full support | the moment in ground contact when the CM is directly over the foot |
+| swing leg / stance leg | the leg in the air / the leg on the ground |
+| thigh separation | angle between the two thighs (at touchdown: − = swing knee still behind the stance knee) |
+| figure 4 | at touchdown, swing knee level with (or ahead of) the stance knee, swing heel folded high under the hips: from the side the legs make a "4" |
+| recovery | bringing the swing leg forward after toe-off (heel up and the thigh pulled through) |
+| front-side / back-side mechanics | how much of the leg's motion happens in front of the body vs trailing behind it |
+| push-off (toe-off) extension | how straight the hip and knee are when the foot leaves the ground |
+| thigh angular velocity | how fast the thighs scissor (degrees per second) |
+| overstride | the ankle landing ahead of the knee (Hanley's definition) |
 | duty factor | contact time ÷ (contact time + flight time) |
 | vertical oscillation | how far the centre of mass (CM) rises and falls each step |
 | centre of mass (CM) | the body's balance point, from a segment model |

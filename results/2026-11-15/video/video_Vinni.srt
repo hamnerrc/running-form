@@ -1,99 +1,123 @@
 1
-00:00:00,350 --> 00:00:06,509
-This is Vinni running at about his mile race pace, the day after a race, so he's tired here.
+00:00:00,350 --> 00:00:07,177
+This is Vinni at about mile race pace, eight times slower than real life, the day after a race.
 
 2
-00:00:06,509 --> 00:00:13,939
-Everything is eight times slower than real life, and the lines on his body are computer tracking of his joints.
+00:00:07,177 --> 00:00:19,251
+We judged his stride at the key positions coaches use, and compared him with the 2017 world championship fifteen-hundred-metre final, and, for his kick, with sprinters.
 
 3
-00:00:14,850 --> 00:00:19,232
-He ran between a four forty-four and a four fifty-eight mile pace.
+00:00:20,150 --> 00:00:23,648
+The biggest thing is the leg in the air at touchdown.
 
 4
-00:00:19,232 --> 00:00:20,427
-His form is clean.
+00:00:23,648 --> 00:00:25,497
+Watch his right leg, in red.
 
 5
-00:00:20,427 --> 00:00:35,565
-His shin is nearly vertical at touchdown, his touchdown distance is small, so the foot lands only a little in front of his hips, his knee bends a normal amount during ground contact, and he pushes off with a nearly straight leg.
+00:00:25,497 --> 00:00:34,870
+When his left foot lands, the right knee is still about forty centimetres behind the other knee, and the foot is half a metre behind his hips.
 
 6
-00:00:36,450 --> 00:00:43,857
-The one number that stands out is vertical oscillation, how much his centre of mass rises and falls each step.
+00:00:34,870 --> 00:00:37,972
+Most of his leg motion happens behind his body.
 
 7
-00:00:43,857 --> 00:00:46,348
-The yellow dot is his centre of mass.
+00:00:37,972 --> 00:00:40,481
+Coaches call that back-side mechanics.
 
 8
-00:00:46,348 --> 00:00:50,590
-At mile pace it moves up and down about four inches every step.
+00:00:41,383 --> 00:00:47,696
+Even at full support, with his body right over the foot, the swing knee still hasn't caught up.
 
 9
-00:00:50,590 --> 00:00:54,361
-In his kick, running much faster, it's only about three.
+00:00:47,696 --> 00:00:53,742
+And the thigh takes about a sixth of a second after toe-off just to swing back to vertical.
 
 10
-00:00:54,361 --> 00:00:58,670
-Lower vertical oscillation usually means better running economy.
+00:00:53,742 --> 00:00:55,869
+Knee lift is only fifty degrees.
 
 11
-00:00:58,670 --> 00:01:02,306
-Cue: run tall and quick, push the ground back, not up.
+00:00:56,750 --> 00:01:03,883
+At toe-off he pushes until the leg is completely straight, knee at about a hundred and seventy-two degrees.
 
 12
-00:01:03,217 --> 00:01:16,211
-To practise that, do mile-pace strides with a metronome set a little faster than his natural cadence, about a hundred and eighty steps per minute, plus pogo hops, small quick jumps off the ankles.
+00:01:03,883 --> 00:01:13,283
+Research on running economy links less leg extension at toe-off with using less energy, and a leg pushed far behind has further to come back.
 
 13
-00:01:16,211 --> 00:01:18,598
-Back off if his shins start to hurt.
+00:01:14,183 --> 00:01:15,952
+Here's why it matters most.
 
 14
-00:01:19,483 --> 00:01:21,845
-How he speeds up is already right.
+00:01:15,952 --> 00:01:18,507
+In his kick, he keeps the same pattern.
 
 15
-00:01:21,845 --> 00:01:31,015
-From mile pace to his kick, his step rate rises about twenty-five percent, his step length a bit, and his ground contact time drops.
+00:01:18,507 --> 00:01:23,421
+The white figure is a world-class sprinter at touchdown, drawn to his size.
 
 16
-00:01:31,015 --> 00:01:36,294
-That's how top fifteen-hundred-metre runners do it, so leave the kick alone.
+00:01:23,421 --> 00:01:25,124
+His knee is far behind it.
 
 17
-00:01:37,183 --> 00:01:38,682
-And a bonus: the backflip.
+00:01:25,124 --> 00:01:33,575
+Distance runners don't switch to sprint mechanics on their own, so the last two hundred metres of a race is where this costs him.
 
 18
-00:01:38,682 --> 00:01:45,424
-The jump is great: straight up, his centre of mass rises about fourteen inches, and he lands right where he took off.
+00:01:34,483 --> 00:01:38,325
+He also leans forward about thirteen degrees at mile pace.
 
 19
-00:01:45,424 --> 00:01:46,865
-But watch his upper body.
+00:01:38,325 --> 00:01:42,232
+Elite milers run taller, and stay upright as they speed up.
 
 20
-00:01:46,865 --> 00:01:52,052
-It stays stuck, leaning back, while he rises, and he only tucks his knees at the very top.
+00:01:42,232 --> 00:01:52,498
+What's already elite-level: his knee at landing, his shin close to vertical, and the foot landing a normal distance in front, all matching the world final.
 
 21
-00:01:52,052 --> 00:01:57,584
-That's too late, so he lands about a quarter turn short, bent forward with almost straight legs.
+00:01:52,498 --> 00:01:56,670
+And he speeds up mostly by raising his step rate, like they do.
 
 22
-00:01:57,584 --> 00:02:03,866
-The fix: knees to your chest right after you leave the ground, then land in a small squat with your chest up.
+00:01:57,583 --> 00:01:58,948
+A bonus: the backflip.
 
 23
-00:02:03,866 --> 00:02:05,941
-Practise on a mat or with a spotter.
+00:01:58,948 --> 00:02:03,290
+The jump itself is great, straight up, and he lands where he took off.
 
 24
-00:02:06,817 --> 00:02:09,362
-His left and right sides look the same.
+00:02:03,290 --> 00:02:12,841
+But his upper body stays leaning back while he rises, and he only tucks at the very top, so he lands about a quarter turn short with almost straight legs.
 
 25
-00:02:09,362 --> 00:02:14,518
-We'll film again in three to four weeks, once fresh and once tired, to compare.
+00:02:12,841 --> 00:02:18,796
+Fix: knees to your chest right after you leave the ground, then land in a small squat, chest up.
+
+26
+00:02:18,796 --> 00:02:21,029
+Practise on a mat or with a spotter.
+
+27
+00:02:21,917 --> 00:02:22,499
+The plan.
+
+28
+00:02:22,499 --> 00:02:31,105
+One: sprint mechanics for the kick, with A-skips, dribbles, wicket runs and kick-speed strides, plus knee drives for the hip flexors.
+
+29
+00:02:31,105 --> 00:02:38,093
+Two: at mile pace, pick the foot up under you instead of pushing it back, with a slightly quicker step rate.
+
+30
+00:02:38,093 --> 00:02:39,129
+Three: run tall.
+
+31
+00:02:39,129 --> 00:02:41,458
+We'll retest in three to four weeks.

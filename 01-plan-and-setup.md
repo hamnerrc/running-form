@@ -54,6 +54,9 @@ Do the field reps first, then move the tripod to the pit.
 
 ## 4. Easy extras that improve the analysis
 
+- **What gets compared:** every stride is judged at the five key positions (toe-off, top of flight, strike, touchdown, full support) against world-class values (02/03). RC's retest targets: thigh separation at touchdown −34° → about −15° (swing knee level with the stance knee: the "figure 4"), push-off knee ≤ 160° at toe-off, knee lift → 72°+, approach speed → 19.6 mph. For a miler, film **2 kick-pace runs each way** as well as mile pace: the kick is where sprint mechanics matter.
+- **Knees and hips matter most now.** If using tape, the side of the knee and the hip bone are the two most useful spots (the figure-4 measure depends on both knees).
+
 - **Arms visible:** a fitted short-sleeve shirt, no jacket. The analysis now measures arm action (shoulder range of motion, elbow angle, hand height and how far the hands go behind the hips, and arm–leg timing).
 - **Optional landmark tape** (pink, small squares) on the side facing the camera: outer ankle bone, side of the knee, hip bone, top of the shoulder, **elbow, wrist**. It improves joint accuracy; skip it if short on time.
 - **Send the original 240 fps files**: AirDrop with Options → "All Photos Data" on. Last time the files were 30 fps renders of the slo-mo, which still worked but loses the timestamps.
